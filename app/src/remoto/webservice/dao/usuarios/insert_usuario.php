@@ -8,8 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $body = json_decode(file_get_contents("php://input"), true);
 
     $resultado = UsuarioDAO::altaUsuario(
-        $id, $codigo_cliente, $nif, $nombre, $apellido1, $apellido2, $numero_cuenta, $rol, $activo
-        $body[0],
+        
         $body['codigo_cliente'],
         $body['nif'],
         $body['nombre'],

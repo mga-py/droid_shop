@@ -8,8 +8,8 @@ class ProductoDAO {
 
     }
 
-    public function altaProducto($id, $codigo_producto, $descripcion, $id_proveedor, $precio_coste, $pvp, $iva, $codigo_barras, $stock_actual, $stock_minimo, $stock_maximo, $ruta_foto, $activo) {
-        $comando = "INSERT INTO productos (id, codigo_producto, descripcion, id_proveedor, precio_coste, pvp, iva, codigo_barras, stock_actual, stock_minimo,stock_maximo, ruta_foto, activo) VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?)";
+    public function altaProducto($codigo_producto, $descripcion, $id_proveedor, $precio_coste, $pvp, $iva, $codigo_barras, $stock_actual, $stock_minimo, $stock_maximo, $ruta_foto, $activo) {
+        $comando = "INSERT INTO productos (codigo_producto, descripcion, id_proveedor, precio_coste, pvp, iva, codigo_barras, stock_actual, stock_minimo,stock_maximo, ruta_foto, activo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         $sentencia = Database::getInstance()->getDb()->prepare($comando);
         return $sentencia->execute(array($codigo_producto, $descripcion, $id_proveedor, $precio_coste, $pvp, $iva, $codigo_barras, $stock_actual, $stock_minimo, $stock_maximo, $ruta_foto, $activo));
     }

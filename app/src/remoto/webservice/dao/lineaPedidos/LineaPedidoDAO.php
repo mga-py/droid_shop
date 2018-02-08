@@ -8,10 +8,10 @@ class LineaPedidoDAO {
 
     }
 
-    public function altaLineaPedido($id, $codigo_linea_pedido, $id_pedido, $id_producto, $descripcion, $unidades, $iva, $pvp) {
-        $comando = "INSERT INTO linea_pedido (id, codigo_linea_pedido, id_pedido, id_producto, descripcion, unidades, iva, pvp) VALUES (null, ?, ?, ?, ?, ?, ?, ?)";
+    public function altaLineaPedido($codigo_linea_pedido, $id_pedido, $id_producto, $descripcion, $unidades, $iva, $pvp) {
+        $comando = "INSERT INTO linea_pedido (codigo_linea_pedido, id_pedido, id_producto, descripcion, unidades, iva, pvp) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $sentencia = Database::getInstance()->getDb()->prepare($comando);
-        return $sentencia->execute(array($id, $codigo_linea_pedido, $id_pedido, $id_producto, $descripcion, $unidades, $iva, $pvp));
+        return $sentencia->execute(array($codigo_linea_pedido, $id_pedido, $id_producto, $descripcion, $unidades, $iva, $pvp));
     }
 
     public function bajaLineaPedido($id) {

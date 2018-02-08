@@ -8,10 +8,10 @@ class PedidoDAO {
 
     }
 
-    public function altaPedido($id, $codigo_pedido, $id_empledado_empaqueta, $empresa_transporte, $fecha_pedido, $fecha_envio, $fecha_entrega, $fecha_pago, $id_factura, $facturado, $metodo_pago, $activo, $id_usuario) {
-        $comando = "INSERT INTO pedidos (id, codigo_pedido, id_empledado_empaqueta, empresa_transporte, fecha_pedido, fecha_envio, fecha_entrega, fecha_pago, id_factura, facturado, metodo_pago, activo, id_usuario) VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public function altaPedido($codigo_pedido, $id_empledado_empaqueta, $empresa_transporte, $fecha_pedido, $fecha_envio, $fecha_entrega, $fecha_pago, $id_factura, $facturado, $metodo_pago, $activo, $id_usuario) {
+        $comando = "INSERT INTO pedidos (codigo_pedido, id_empledado_empaqueta, empresa_transporte, fecha_pedido, fecha_envio, fecha_entrega, fecha_pago, id_factura, facturado, metodo_pago, activo, id_usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $sentencia = Database::getInstance()->getDb()->prepare($comando);
-        return $sentencia->execute(array($id, $codigo_pedido, $id_empledado_empaqueta, $empresa_transporte, $fecha_pedido, $fecha_envio, $fecha_entrega, $fecha_pago, $id_factura, $facturado, $metodo_pago, $activo, $id_usuario));
+        return $sentencia->execute(array($codigo_pedido, $id_empledado_empaqueta, $empresa_transporte, $fecha_pedido, $fecha_envio, $fecha_entrega, $fecha_pago, $id_factura, $facturado, $metodo_pago, $activo, $id_usuario));
     }
 
     public function bajaPedido($id) {

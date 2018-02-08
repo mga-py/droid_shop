@@ -8,8 +8,8 @@ class UsuarioDAO {
 
     }
 
-    public function altaUsuario($id, $codigo_cliente, $nif, $nombre, $apellido1, $apellido2, $numero_cuenta, $rol, $activo) {
-        $comando = "INSERT INTO usuarios (id, codigo_cliente, nif, nombre, apellido1, apellido2, numero_cuenta, rol, activo) VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public function altaUsuario( $codigo_cliente, $nif, $nombre, $apellido1, $apellido2, $numero_cuenta, $rol, $activo) {
+        $comando = "INSERT INTO usuarios ( codigo_cliente, nif, nombre, apellido1, apellido2, numero_cuenta, rol, activo) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
         $sentencia = Database::getInstance()->getDb()->prepare($comando);
         return $sentencia->execute(array($codigo_cliente, $nif, $nombre, $apellido1, $apellido2, $numero_cuenta, $rol, $activo));
     }

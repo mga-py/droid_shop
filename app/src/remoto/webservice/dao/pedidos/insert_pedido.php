@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $body = json_decode(file_get_contents("php://input"), true);
 
     $resultado = PedidoDAO::altaPedido(
-        $body[0],
         $body['codigo_pedido'],
         $body['id_empleado_empaqueta'],
         $body['empresa_transporte'],

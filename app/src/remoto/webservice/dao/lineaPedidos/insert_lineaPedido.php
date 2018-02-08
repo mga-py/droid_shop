@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $body = json_decode(file_get_contents("php://input"), true);
 
     $resultado = LineaPedidoDAO::altaLineaPedido(
-        $body[0],
         $body['codigo_linea_pedido'],
         $body['id_pedido'],
         $body['id_producto'],
