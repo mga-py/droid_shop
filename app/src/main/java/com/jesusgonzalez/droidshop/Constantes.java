@@ -34,11 +34,34 @@ public class Constantes {
     /**
      * URLs del Web Service
      */
-    public static final String GET = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_lineaPedido.php";
-    public static final String GET_BY_ID = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_mensaje_by_id.php";
-    public static final String UPDATE = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/update_mensaje.php";
-    public static final String DELETE = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/delete_mensaje.php";
-    public static final String INSERT = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/insert_lineaPedido.php";
+
+    //LINEA PEDIDO
+    public static final String GET_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_lineaPedido.php";
+    public static final String GET_BY_ID_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_lineaPedido_by_id.php";
+    public static final String UPDATE_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/update_lineaPedido.php";
+    public static final String DELETE_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/delete_lineaPedido.php";
+    public static final String INSERT_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/insert_lineaPedido.php";
+
+    //PEDIDO
+    public static final String GET_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_pedido.php";
+    public static final String GET_BY_ID_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_pedido_by_id.php";
+    public static final String UPDATE_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/update_pedido.php";
+    public static final String DELETE_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/delete_pedido.php";
+    public static final String INSERT_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/insert_pedido.php";
+
+    //PRODUCTO
+    public static final String GET_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_producto.php";
+    public static final String GET_BY_ID_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_producto_by_id.php";
+    public static final String UPDATE_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/update_producto.php";
+    public static final String DELETE_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/delete_producto.php";
+    public static final String INSERT_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/insert_producto.php";
+
+    //USUARIO
+    public static final String GET_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_usuario.php";
+    public static final String GET_BY_ID_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_usuario_by_id.php";
+    public static final String UPDATE_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/update_usuario.php";
+    public static final String DELETE_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/delete_usuario.php";
+    public static final String INSERT_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/insert_usuario.php";
 
     /**
      * Clave para el valor extra que representa al identificador de un mensaje

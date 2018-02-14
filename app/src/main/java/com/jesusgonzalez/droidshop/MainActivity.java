@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Volley
         VolleySingleton.getInstance(this).addToRequestQueue(
-                new JsonObjectRequest(Request.Method.POST, Constantes.INSERT, jsonObject,
+                new JsonObjectRequest(Request.Method.POST, Constantes.INSERT_LINEAPEDIDO, jsonObject,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     public void getMensajes() {
         Toast.makeText(MainActivity.this, "Empezando.....", Toast.LENGTH_SHORT).show();
         VolleySingleton.getInstance(this).addToRequestQueue(
-                new JsonObjectRequest(Request.Method.GET, Constantes.GET, null,
+                new JsonObjectRequest(Request.Method.GET, Constantes.GET_LINEAPEDIDO, null,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
