@@ -1,6 +1,7 @@
 package com.jesusgonzalez.droidshop;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -39,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         lvLineaPedido = findViewById(R.id.lv_lineaPedido);
         editText_codLineaPedido = findViewById(R.id.editText);
         editText_idPedido = findViewById(R.id.editText2);

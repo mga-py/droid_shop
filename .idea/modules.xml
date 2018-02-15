@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\alumno\AndroidStudioProjects\droid_shop\DroidShop.iml" filepath="C:\Users\alumno\AndroidStudioProjects\droid_shop\DroidShop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DroidShop.iml" filepath="$PROJECT_DIR$/DroidShop.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\alumno\AndroidStudioProjects\droid_shop\app\app.iml" filepath="C:\Users\alumno\AndroidStudioProjects\droid_shop\app\app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/droid_shop.iml" filepath="$PROJECT_DIR$/droid_shop.iml" />
-      <module fileurl="file://C:\Users\Chusgome\AndroidStudioProjects\DroidShop\droid_shop.iml" filepath="C:\Users\Chusgome\AndroidStudioProjects\DroidShop\droid_shop.iml" />
     </modules>
   </component>
 </project>
