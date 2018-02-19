@@ -1,4 +1,4 @@
-package com.jesusgonzalez.droidshop;
+package com.jesusgonzalez.droidshop.pedidos;
 
 import java.util.Date;
 

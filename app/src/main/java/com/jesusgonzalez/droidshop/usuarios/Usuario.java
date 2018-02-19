@@ -1,4 +1,4 @@
-package com.jesusgonzalez.droidshop;
+package com.jesusgonzalez.droidshop.usuarios;
 
 /**
  * Created by Chusgome on 14/02/2018.
