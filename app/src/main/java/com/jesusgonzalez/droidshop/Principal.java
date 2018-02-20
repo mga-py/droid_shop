@@ -86,7 +86,7 @@ public class Principal extends AppCompatActivity
 
         } else if (id == R.id.nav_cart) {
 
-        } else if (id == R.id.nav_customes) {
+        } else if (id == R.id.nav_clients) {
 
         } else if (id == R.id.nav_profile) {
 
