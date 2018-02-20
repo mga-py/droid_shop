@@ -139,4 +139,28 @@ public class LineaPedidoController {
             e.printStackTrace();
         }
     }
+
+    public void deleteLineaPedido(String codLineaPedido) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("codLineaPedido", String.valueOf(codLineaPedido));
+        JSONObject jsonObject = new JSONObject(map); // Crear nuevo objeto Json basado en el mapa
+
+        //Volley
+        VolleySingleton.getInstance(context).addToRequestQueue(
+                new JsonObjectRequest(Request.Method.POST, Constantes.DELETE_LINEAPEDIDO, jsonObject,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                //procesarRespuesta(response); // Procesar la respuesta Json
+                                Log.d(TAG, "Inserción correcta");
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.d(TAG, "Error Volley: " + error.getMessage());
+                            }
+                        })  //Fin de JsonObjectRequest
+        );
+    }
 }
