@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.jesusgonzalez.droidshop.R;
 
@@ -23,6 +25,19 @@ public class UpdateProductoFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+
+    EditText etCodigoProductoUpdate = getView().findViewById(R.id.et_codigoProducto_update);
+    EditText etDescripcionProductoUpdate = getView().findViewById(R.id.et_descripcion_update);
+    EditText etProveedorProductoUpdate = getView().findViewById(R.id.et_proveedor_update);
+    EditText etPrecioCosteProductoUpdate = getView().findViewById(R.id.et_precioCoste_update);
+    EditText etPvpProductoUpdate = getView().findViewById(R.id.et_pvp_update);
+    EditText etIvaProductoUpdate = getView().findViewById(R.id.et_iva_update);
+    EditText etActivoProductoUpdate = getView().findViewById(R.id.et_activoProducto_update);
+
+    Button button = getView().findViewById(R.id.bt_updateProducto);
+
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;

@@ -1,5 +1,6 @@
 package com.jesusgonzalez.droidshop;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jesusgonzalez.droidshop.productos.AddProductoFragment;
 import com.jesusgonzalez.droidshop.productos.ProductoController;
 import com.jesusgonzalez.droidshop.productos.ProductoFragment;
 import com.jesusgonzalez.droidshop.productos.dummy.DummyContent;
@@ -23,7 +25,7 @@ import com.jesusgonzalez.droidshop.productos.dummy.DummyContent;
 import java.io.Serializable;
 
 public class Principal extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ProductoFragment.OnListFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ProductoFragment.OnListFragmentInteractionListener, AddProductoFragment.OnFragmentInteractionListener {
 
     private static final String LISTA_PRODUCTOS = "com.jesusgonzalez.droidshop.productos.ListaProductos";
 
@@ -123,8 +125,8 @@ public class Principal extends AppCompatActivity
         } else if (id == R.id.nav_profile) {
 
         } else if (id == R.id.nav_logout) {
-//            ProductoController controller = new ProductoController(getApplicationContext(),getCurrentFocus());
-//            controller.getAll();
+            loadFragmentsadd();
+
 
 
         }
@@ -136,6 +138,26 @@ public class Principal extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
+    }
+
+    private void loadFragmentsadd() {
+        //Bundle bundle = new Bundle();
+        //bundle.putSerializable(LISTA_PRODUCTOS, (Serializable) noticias);
+
+//        ProductoController productoController = new ProductoController(this,getCurrentFocus());
+//        productoController.getAll(mListener);
+
+        FragmentManager fm01 = getSupportFragmentManager();
+        FragmentTransaction ft01 = fm01.beginTransaction();
+        AddProductoFragment fragment01 = new AddProductoFragment();
+        //fragment01.setArguments(bundle);
+        ft01.replace(R.id.frame_contain01, fragment01);
+        ft01.commit();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }

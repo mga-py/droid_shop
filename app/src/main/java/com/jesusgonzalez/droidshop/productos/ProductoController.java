@@ -50,11 +50,12 @@ public class ProductoController {
         this.view = view;
     }
 
-    public void insert(String codigo_producto, String id_proveedor, String precio_coste, String pvp, String iva, String codigo_barras,
+    public void insert(String codigo_producto, String descripcion, String id_proveedor, String precio_coste, String pvp, String iva, String codigo_barras,
                        String stock_actual, String stock_minimo, String stock_maximo, String ruta_foto, String activo) {
         final boolean resultado = false;
         final HashMap<String, String> map = new HashMap<>();
         map.put("codigo_producto", String.valueOf(codigo_producto));
+        map.put("descripcion", String.valueOf(descripcion));
         map.put("id_proveedor", String.valueOf(id_proveedor));
         map.put("precio_coste", String.valueOf(precio_coste));
         map.put("pvp", String.valueOf(pvp));
