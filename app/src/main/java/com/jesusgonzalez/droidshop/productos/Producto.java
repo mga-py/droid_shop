@@ -1,10 +1,15 @@
 package com.jesusgonzalez.droidshop.productos;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 /**
  * Created by Chusgome on 14/02/2018.
  */
 
-public class Producto {
+public class Producto implements Parcelable {
     //Atributos
     private Integer id;
     private String codigoProducto;
@@ -133,5 +138,33 @@ public class Producto {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id=" + id +
+                ", codigoProducto='" + codigoProducto + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", idProveedor=" + idProveedor +
+                ", precioCoste=" + precioCoste +
+                ", iva=" + iva +
+                ", codigoBarras='" + codigoBarras + '\'' +
+                ", stockActual=" + stockActual +
+                ", stockMinimo=" + stockMinimo +
+                ", stockMaximo=" + stockMaximo +
+                ", rutaFoto='" + rutaFoto + '\'' +
+                ", activo=" + activo +
+                '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

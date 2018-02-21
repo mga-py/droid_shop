@@ -30,7 +30,7 @@ public class Constantes {
     /**
      * Dirección IP de genymotion o AVD
      */
-    private static final String IP = "http://192.168.2.101:";
+    private static final String IP = "http://192.168.0.160:";
     /**
      * URLs del Web Service
      */
@@ -43,25 +43,25 @@ public class Constantes {
     public static final String INSERT_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/insert_lineaPedido.php";
 
     //PEDIDO
-    public static final String GET_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_pedido.php";
-    public static final String GET_BY_ID_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_pedido_by_id.php";
-    public static final String UPDATE_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/update_pedido.php";
-    public static final String DELETE_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/delete_pedido.php";
-    public static final String INSERT_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/insert_pedido.php";
+    public static final String GET_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/pedidos/get_pedido.php";
+    public static final String GET_BY_ID_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/pedidos/get_pedido_by_id.php";
+    public static final String UPDATE_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/pedidos/update_pedido.php";
+    public static final String DELETE_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/pedidos/delete_pedido.php";
+    public static final String INSERT_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/pedidos/insert_pedido.php";
 
     //PRODUCTO
-    public static final String GET_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_producto.php";
-    public static final String GET_BY_ID_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_producto_by_id.php";
-    public static final String UPDATE_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/update_producto.php";
-    public static final String DELETE_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/delete_producto.php";
-    public static final String INSERT_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/insert_producto.php";
+    public static final String GET_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/productos/get_producto.php";
+    public static final String GET_BY_ID_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/productos/get_producto_by_id.php";
+    public static final String UPDATE_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/productos/update_producto.php";
+    public static final String DELETE_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/productos/delete_producto.php";
+    public static final String INSERT_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/productos/insert_producto.php";
 
     //USUARIO
-    public static final String GET_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_usuario.php";
-    public static final String GET_BY_ID_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_usuario_by_id.php";
-    public static final String UPDATE_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/update_usuario.php";
-    public static final String DELETE_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/delete_usuario.php";
-    public static final String INSERT_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/insert_usuario.php";
+    public static final String GET_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/usuarios/get_usuario.php";
+    public static final String GET_BY_ID_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/usuarios/get_usuario_by_id.php";
+    public static final String UPDATE_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/usuarios/update_usuario.php";
+    public static final String DELETE_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/usuarios/delete_usuario.php";
+    public static final String INSERT_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/usuarios/insert_usuario.php";
 
     /**
      * Clave para el valor extra que representa al identificador de un mensaje
