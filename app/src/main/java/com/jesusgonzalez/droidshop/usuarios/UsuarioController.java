@@ -19,7 +19,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Chusgome on 15/02/2018.
@@ -165,5 +169,42 @@ public class UsuarioController {
         );
     }
 
+    public void upadate(String codigo_cliente, String nif, String nombre, String apellido1, String apellido2, String numero_cuenta,
+                        String rol, String activo) {
+        final boolean resultado = false;
+        final HashMap<String, String> map = new HashMap<>();
+        map.put("codigo_cliente", String.valueOf(codigo_cliente));
+        map.put("nif", String.valueOf(nif));
+        map.put("nombre", String.valueOf(nombre));
+        map.put("apellido1", String.valueOf(apellido1));
+        map.put("apellido2", String.valueOf(apellido2));
+        map.put("numero_cuenta", String.valueOf(numero_cuenta));
+        map.put("rol", String.valueOf(rol));
+        map.put("activo", String.valueOf(activo));
+
+        // Crear nuevo objeto Json basado en el mapa
+        JSONObject jsonObject = new JSONObject(map);
+
+        //Volley
+        VolleySingleton.getInstance(context).addToRequestQueue(
+                new JsonObjectRequest(Request.Method.POST, Constantes.UPDATE_USUARIO, jsonObject,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                procesarInsercion(response); // Procesar la respuesta Json
+                                //Log.d(TAG,"Inserción correcta");
+                                Toast.makeText(context, "ACTUALIZACION CORRECTAA", Toast.LENGTH_SHORT).show();
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.d(TAG, "Error Volley: " + error.getMessage());
+                                Toast.makeText(context, map.toString(), Toast.LENGTH_SHORT).show();
+
+                            }
+                        })  //Fin de JsonObjectRequest
+        );
+    }
 
 }

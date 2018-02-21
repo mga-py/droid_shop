@@ -163,4 +163,41 @@ public class LineaPedidoController {
                         })  //Fin de JsonObjectRequest
         );
     }
+
+    public void update(String codLineaPedido, String idPedido, String idProducto, String descripcion, String unidades, String iva, String pvp) {
+        final boolean resultado = false;
+        final HashMap<String, String> map = new HashMap<>();
+        map.put("codigo_linea_pedido", String.valueOf(codLineaPedido));
+        map.put("id_pedido", String.valueOf(idPedido));
+        map.put("id_producto", String.valueOf(idProducto));
+        map.put("descripcion", String.valueOf(descripcion));
+        map.put("unidades", String.valueOf(unidades));
+        map.put("iva", String.valueOf(iva));
+        map.put("pvp", String.valueOf(pvp));
+
+
+        // Crear nuevo objeto Json basado en el mapa
+        JSONObject jsonObject = new JSONObject(map);
+
+        //Volley
+        VolleySingleton.getInstance(context).addToRequestQueue(
+                new JsonObjectRequest(Request.Method.POST, Constantes.UPDATE_LINEAPEDIDO, jsonObject,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                procesarInsercion(response); // Procesar la respuesta Json
+                                //Log.d(TAG,"Inserción correcta");
+                                Toast.makeText(context, "ACTUALIZACION CORRECTAA", Toast.LENGTH_SHORT).show();
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.d(TAG, "Error Volley: " + error.getMessage());
+                                Toast.makeText(context, map.toString(), Toast.LENGTH_SHORT).show();
+
+                            }
+                        })  //Fin de JsonObjectRequest
+        );
+    }
 }
