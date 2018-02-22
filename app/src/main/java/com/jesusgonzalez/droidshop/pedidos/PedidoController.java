@@ -197,7 +197,7 @@ public class PedidoController {
 
 
     public void update(String codigo_pedido, String id_empleado_empaqueta, String empresa_transporte, String fecha_pedido, String fecha_envio, String fecha_entrega,
-                       String fecha_pago, String id_factura, String facturado, String metodo_pago, String activo, String id_usuario) {
+                       String fecha_pago, String id_factura, String facturado, String metodo_pago, String activo, String id_usuario, String id_pedido) {
         final boolean resultado = false;
         final HashMap<String, String> map = new HashMap<>();
         map.put("codigo_pedido", String.valueOf(codigo_pedido));
@@ -212,6 +212,7 @@ public class PedidoController {
         map.put("metodo_pago", String.valueOf(metodo_pago));
         map.put("activo", String.valueOf(activo));
         map.put("id_usuario", String.valueOf(id_usuario));
+        map.put("id_pedido", String.valueOf(id_pedido));
 
 
         // Crear nuevo objeto Json basado en el mapa
@@ -223,7 +224,7 @@ public class PedidoController {
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                procesarInsercion(response); // Procesar la respuesta Json
+                                procesarActualizacion(response); // Procesar la respuesta Json
                                 //Log.d(TAG,"Inserción correcta");
                                 Toast.makeText(context, "ACTUALIZACION CORRECTAA", Toast.LENGTH_SHORT).show();
                             }
@@ -237,5 +238,24 @@ public class PedidoController {
                             }
                         })  //Fin de JsonObjectRequest
         );
+    }
+
+    private void procesarActualizacion(JSONObject response) {
+        try {
+            //Log.d(TAG,"Respuesta: "+response.toString());
+            String estado = response.getString("estado");  // Obtener atributo estado
+            switch (estado) {
+                case "1": // Correcto
+                    Toast.makeText(context, "Message added suscessfully", Toast.LENGTH_LONG).show();
+                    break;
+                case "2": // error
+                    Toast.makeText(context, response.getString("mensaje"), Toast.LENGTH_LONG).show();
+                    //Snackbar.make(view, response.getString("mensaje"),Snackbar.LENGTH_LONG).show();
+                    break;
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

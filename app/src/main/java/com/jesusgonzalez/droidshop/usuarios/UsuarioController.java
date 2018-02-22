@@ -36,7 +36,7 @@ public class UsuarioController {
     }
 
     public void insert(String codigo_cliente, String nif, String nombre, String apellido1, String apellido2, String numero_cuenta,
-                       String rol, String activo) {
+                       String rol, String activo, String id_usuario) {
         final boolean resultado = false;
         final HashMap<String, String> map = new HashMap<>();
         map.put("codigo_cliente", String.valueOf(codigo_cliente));
@@ -47,6 +47,7 @@ public class UsuarioController {
         map.put("numero_cuenta", String.valueOf(numero_cuenta));
         map.put("rol", String.valueOf(rol));
         map.put("activo", String.valueOf(activo));
+        map.put("id_usuario", String.valueOf(id_usuario));
 
         // Crear nuevo objeto Json basado en el mapa
         JSONObject jsonObject = new JSONObject(map);
@@ -210,7 +211,7 @@ public class UsuarioController {
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                procesarInsercion(response); // Procesar la respuesta Json
+                                procesarActualizacion(response); // Procesar la respuesta Json
                                 //Log.d(TAG,"Inserción correcta");
                                 Toast.makeText(context, "ACTUALIZACION CORRECTAA", Toast.LENGTH_SHORT).show();
                             }
@@ -224,6 +225,25 @@ public class UsuarioController {
                             }
                         })  //Fin de JsonObjectRequest
         );
+    }
+
+    private void procesarActualizacion(JSONObject response) {
+        try {
+            //Log.d(TAG,"Respuesta: "+response.toString());
+            String estado = response.getString("estado");  // Obtener atributo estado
+            switch (estado) {
+                case "1": // Correcto
+                    Toast.makeText(context, "Message added suscessfully", Toast.LENGTH_LONG).show();
+                    break;
+                case "2": // error
+                    Toast.makeText(context, response.getString("mensaje"), Toast.LENGTH_LONG).show();
+                    //Snackbar.make(view, response.getString("mensaje"),Snackbar.LENGTH_LONG).show();
+                    break;
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }
