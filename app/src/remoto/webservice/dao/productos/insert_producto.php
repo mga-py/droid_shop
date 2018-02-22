@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $resultado = ProductoDAO::altaProducto(
         $body['codigo_producto'],
+        $body['descripcion'],
         $body['id_proveedor'],
         $body['precio_coste'],
         $body['pvp'],
