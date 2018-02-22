@@ -5,9 +5,38 @@
     tools:context="com.jesusgonzalez.droidshop.usuarios.SearchIdUsuarioFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/et_idUsuario_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="37dp" />
+
+        <Button
+            android:id="@+id/bt_searchIdUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BUSCAR" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="373dp" />
+
+        <TextView
+            android:id="@+id/tv_UsuarioRecogido"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:text="TextView" />
+    </LinearLayout>
 </FrameLayout>

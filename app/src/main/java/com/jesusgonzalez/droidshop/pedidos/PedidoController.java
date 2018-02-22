@@ -145,6 +145,7 @@ public class PedidoController {
         }
     }
 
+
     public void deletePedido(String codigoPedido) {
         HashMap<String, String> map = new HashMap<>();
         map.put("codigoPedido", String.valueOf(codigoPedido));
@@ -168,6 +169,32 @@ public class PedidoController {
                         })  //Fin de JsonObjectRequest
         );
     }
+
+    public void searchPedido(String codigoPedido) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("codigoPedido", String.valueOf(codigoPedido));
+        JSONObject jsonObject = new JSONObject(map); // Crear nuevo objeto Json basado en el mapa
+
+        //Volley
+        VolleySingleton.getInstance(context).addToRequestQueue(
+                new JsonObjectRequest(Request.Method.POST, Constantes.GET_BY_ID_PEDIDO, jsonObject,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                //procesarRespuesta(response); // Procesar la respuesta Json
+                                Log.d(TAG, "Inserción correcta");
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.d(TAG, "Error Volley: " + error.getMessage());
+                            }
+                        })  //Fin de JsonObjectRequest
+        );
+    }
+
+
 
     public void update(String codigo_pedido, String id_empleado_empaqueta, String empresa_transporte, String fecha_pedido, String fecha_envio, String fecha_entrega,
                        String fecha_pago, String id_factura, String facturado, String metodo_pago, String activo, String id_usuario) {

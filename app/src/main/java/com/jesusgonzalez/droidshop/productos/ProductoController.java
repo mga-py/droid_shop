@@ -1,17 +1,9 @@
 package com.jesusgonzalez.droidshop.productos;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.SupportActivity;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -20,8 +12,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
 import com.jesusgonzalez.droidshop.Constantes;
-import com.jesusgonzalez.droidshop.Principal;
-import com.jesusgonzalez.droidshop.R;
 import com.jesusgonzalez.droidshop.VolleySingleton;
 import com.jesusgonzalez.droidshop.productos.dummy.DummyContent;
 
@@ -29,11 +19,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by Chusgome on 15/02/2018.
@@ -195,6 +183,30 @@ public class ProductoController {
         //Volley
         VolleySingleton.getInstance(context).addToRequestQueue(
                 new JsonObjectRequest(Request.Method.POST, Constantes.DELETE_PRODUCTO, jsonObject,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                //procesarRespuesta(response); // Procesar la respuesta Json
+                                Log.d(TAG, "Inserción correcta");
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.d(TAG, "Error Volley: " + error.getMessage());
+                            }
+                        })  //Fin de JsonObjectRequest
+        );
+    }
+
+    public void searchProducto(String codigoProducto) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("codigoProducto", String.valueOf(codigoProducto));
+        JSONObject jsonObject = new JSONObject(map); // Crear nuevo objeto Json basado en el mapa
+
+        //Volley
+        VolleySingleton.getInstance(context).addToRequestQueue(
+                new JsonObjectRequest(Request.Method.POST, Constantes.GET_BY_ID_PRODUCTO, jsonObject,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {

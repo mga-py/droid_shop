@@ -1,6 +1,5 @@
 package com.jesusgonzalez.droidshop.usuarios;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
@@ -19,11 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by Chusgome on 15/02/2018.
@@ -153,6 +148,30 @@ public class UsuarioController {
         //Volley
         VolleySingleton.getInstance(context).addToRequestQueue(
                 new JsonObjectRequest(Request.Method.POST, Constantes.DELETE_USUARIO, jsonObject,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                //procesarRespuesta(response); // Procesar la respuesta Json
+                                Log.d(TAG, "Inserción correcta");
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.d(TAG, "Error Volley: " + error.getMessage());
+                            }
+                        })  //Fin de JsonObjectRequest
+        );
+    }
+
+    public void searchUsuario(String codigoUsuario) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("codigoUsuario", String.valueOf(codigoUsuario));
+        JSONObject jsonObject = new JSONObject(map); // Crear nuevo objeto Json basado en el mapa
+
+        //Volley
+        VolleySingleton.getInstance(context).addToRequestQueue(
+                new JsonObjectRequest(Request.Method.POST, Constantes.GET_BY_ID_USUARIO, jsonObject,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
