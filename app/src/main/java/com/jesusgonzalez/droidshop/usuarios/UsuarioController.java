@@ -13,11 +13,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
 import com.jesusgonzalez.droidshop.Constantes;
 import com.jesusgonzalez.droidshop.VolleySingleton;
+import com.jesusgonzalez.droidshop.usuarios.dummy.DummyContent;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -94,14 +97,14 @@ public class UsuarioController {
     }
 
 
-    public void getAll() {
+    public void getAll(final UsuariosFragment.OnListFragmentInteractionListener listener) {
         Toast.makeText(context, "Empezando.....", Toast.LENGTH_SHORT).show();
         VolleySingleton.getInstance(context).addToRequestQueue(
                 new JsonObjectRequest(Request.Method.GET, Constantes.GET_USUARIO, null,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                procesarRespuesta(response); // Procesar la respuesta Json
+                                procesarRespuesta(response, listener); // Procesar la respuesta Json
                                 Toast.makeText(context, "PROCESANDOO.....", Toast.LENGTH_SHORT).show();
                             }
                         },
@@ -116,7 +119,7 @@ public class UsuarioController {
         );
     }
 
-    private void procesarRespuesta(JSONObject response) {
+    private void procesarRespuesta(JSONObject response, UsuariosFragment.OnListFragmentInteractionListener listener) {
         try {
             Log.d(TAG, "Respuesta: " + response.toString());
             String estado = response.getString("estado");
@@ -124,11 +127,10 @@ public class UsuarioController {
             switch (estado) {
                 case "1": // correcto
                     JSONArray mensaje = response.getJSONArray("usuario");
-                    Usuario[] mensajes = gson.fromJson(mensaje.toString(), Usuario[].class); // preparar con Gson
-                    // Inicializar adaptador
-                    ArrayAdapter<Usuario> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, mensajes);
-// Lista de linea pedido
-                    //lvLineaPedido.setAdapter(adapter);
+                    DummyContent.DummyItem[] usuarios = gson.fromJson(mensaje.toString(), DummyContent.DummyItem[].class); // preparar con Gson
+                    DummyContent.ITEMS = new ArrayList<>(Arrays.asList(usuarios));
+                    Log.e("anzuelo", usuarios.toString());
+                    ArrayAdapter<DummyContent.DummyItem> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, usuarios);
                     break;
                 case "2": // error
                     String mensaje2 = response.getString("mensaje");

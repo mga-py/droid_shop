@@ -33,9 +33,9 @@ CREATE TABLE `linea_pedido` (
   `codigo_linea_pedido` varchar(10) NOT NULL,
   `id_pedido` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
-  `descripcion` varchar(500) NOT NULL,
+  `descripcion` varchar(500),
   `unidades` int(11) NOT NULL,
-  `iva` decimal(10,2) NOT NULL,
+  `iva` decimal(10,2),
   `pvp` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -58,9 +58,9 @@ CREATE TABLE `pedidos` (
   `id_empleado_empaqueta` int(11) NOT NULL,
   `empresa_transporte` varchar(25) NOT NULL,
   `fecha_pedido` date NOT NULL,
-  `fecha_envio` date NOT NULL,
-  `fecha_entrega` date NOT NULL,
-  `fecha_pago` date NOT NULL,
+  `fecha_envio` date,
+  `fecha_entrega` date,
+  `fecha_pago` date,
   `id_factura` int(11) NOT NULL,
   `facturado` tinyint(1) NOT NULL,
   `metodo_pago` enum('Tarjeta Crédito','Paypal','Transferencia Bancaria','Contrareembolso') NOT NULL,
@@ -89,11 +89,11 @@ CREATE TABLE `productos` (
   `precio_coste` decimal(10,2) NOT NULL,
   `pvp` decimal(10,2) NOT NULL,
   `iva` decimal(10,2) NOT NULL,
-  `codigo_barras` varchar(20) NOT NULL,
-  `stock_actual` int(11) NOT NULL,
-  `stock_minimo` int(11) NOT NULL,
-  `stock_maximo` int(11) NOT NULL,
-  `ruta_foto` varchar(250) NOT NULL,
+  `codigo_barras` varchar(20),
+  `stock_actual` int(11),
+  `stock_minimo` int(11),
+  `stock_maximo` int(11),
+  `ruta_foto` varchar(250),
   `activo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -115,9 +115,9 @@ CREATE TABLE `usuarios` (
   `codigo_cliente` varchar(10) NOT NULL,
   `nif` varchar(15) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `apellido1` varchar(25) NOT NULL,
-  `apellido2` varchar(25) DEFAULT NULL,
-  `numero_cuenta` varchar(20) NOT NULL,
+  `apellido1` varchar(25),
+  `apellido2` varchar(25),
+  `numero_cuenta` varchar(20),
   `rol` enum('cliente','administrador','empleado','invitado') NOT NULL,
   `activo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
