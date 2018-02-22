@@ -1,9 +1,9 @@
 package com.jesusgonzalez.droidshop.productos;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -83,7 +83,6 @@ public class ProductoController {
 
     private void procesarInsercion(JSONObject response) {
         try {
-            //Log.d(TAG,"Respuesta: "+response.toString());
             String estado = response.getString("estado");  // Obtener atributo estado
             switch (estado) {
                 case "1": // Correcto
@@ -100,17 +99,15 @@ public class ProductoController {
         }
     }
 
-
-    public void getAll(final ProductoFragment.OnListFragmentInteractionListener listener) {
+    public void getAll(final ProductoFragment.OnListFragmentInteractionListener listener, final RecyclerView recyclerView) {
         Toast.makeText(context, "Empezando.....", Toast.LENGTH_SHORT).show();
         VolleySingleton.getInstance(context).addToRequestQueue(
                 new JsonObjectRequest(Request.Method.GET, Constantes.GET_PRODUCTO, null,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                procesarRespuesta(response, listener); // Procesar la respuesta Json
-
-                                Toast.makeText(context, "PROCESANDOO.....", Toast.LENGTH_SHORT).show();
+                                procesarRespuesta(response, listener, recyclerView); // Procesar la respuesta Json
+                                //Toast.makeText(context, "PROCESANDOO.....", Toast.LENGTH_SHORT).show();
                             }
                         },
                         new Response.ErrorListener() {
@@ -119,57 +116,26 @@ public class ProductoController {
                                 Log.d(TAG, "Error Volley: " + error.getMessage());
                             }
                         }
-
                 )
         );
     }
 
-    private void procesarRespuesta(JSONObject response, ProductoFragment.OnListFragmentInteractionListener listener) {
+    private void procesarRespuesta(JSONObject response, ProductoFragment.OnListFragmentInteractionListener listener, RecyclerView recyclerView) {
         try {
-
-            Log.d(TAG, "Respuesta: " + response.toString());
             String estado = response.getString("estado");
-
             switch (estado) {
                 case "1": // correcto
                     JSONArray mensaje = response.getJSONArray("producto");
                     DummyContent.DummyItem[] productos = gson.fromJson(mensaje.toString(), DummyContent.DummyItem[].class); // preparar con Gson
                     DummyContent.ITEMS = new ArrayList<>(Arrays.asList(productos));
-                    // MyProductoRecyclerViewAdapter recyclerViewAdapter = new MyProductoRecyclerViewAdapter(new ArrayList<>(Arrays.asList(productos)),listener);
-
-//                    RecyclerView recyclerView = view.findViewById(R.id.reciclerView1);
-//                    recyclerView.setAdapter(recyclerViewAdapter);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putSerializable("com.jesusgonzalez.droidshop.productos.ListaProductos", (Serializable) progetall);
-//
-//                    Bundle bundle = new Bundle();
-//                    bundle.putParcelableArrayList("com.jesusgonzalez.droidshop.productos.ListaProductos", (ArrayList<? extends Parcelable>) progetall);
-
-
-//                    FragmentManager fm01 = Principal.getFragmentManager();
-//                    FragmentTransaction ft01 = fm01.beginTransaction();
-//                    ProductoFragment fragment01 = new ProductoFragment();
-//                    fragment01.setArguments(bundle);
-//                    ft01.replace(R.id.frame_contain01, fragment01);
-//                    ft01.commit();
-
-
-
-
-                    // Inicializar adaptador
-                    Log.e("clarabolla", productos.toString());
-                    ArrayAdapter<DummyContent.DummyItem> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, productos);
-// Lista de linea pedido
-                    //lvLineaPedido.setAdapter(adapter);
-
-
+                    RecyclerView.Adapter adapter = new MyProductoRecyclerViewAdapter(DummyContent.ITEMS, listener);
+                    recyclerView.setAdapter(adapter);
                     break;
                 case "2": // error
                     String mensaje2 = response.getString("mensaje");
                     Toast.makeText(context, mensaje2, Toast.LENGTH_LONG).show();
                     break;
             }
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

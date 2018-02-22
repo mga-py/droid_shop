@@ -3,20 +3,13 @@ package com.jesusgonzalez.droidshop.productos;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.jesusgonzalez.droidshop.R;
-import com.jesusgonzalez.droidshop.productos.dummy.DummyContent;
 import com.jesusgonzalez.droidshop.productos.dummy.DummyContent.DummyItem;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -25,17 +18,12 @@ import java.util.List;
  * interface.
  */
 public class ProductoFragment extends Fragment {
-
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public ProductoFragment() {
     }
 
@@ -52,50 +40,19 @@ public class ProductoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // List<Producto> list= new ArrayList<>();
-
-        ProductoController productoController = new ProductoController(getContext(), getView());
-        productoController.getAll(mListener);
-        //DummyContent content = new DummyContent();
-
-
-        //content.addlistDumyItem();
-
-
-        //content.addlistDumyItem(productoController.getAll());
-
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_producto_list, container, false);
-
-//        TextView tvId = getActivity().findViewById(R.id.tv_idProducto);
-//        TextView tvDescripcion = getActivity().findViewById(R.id.tv_descripcionProducto);
-
-        // Set the adapter
-
-
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-
-
-            recyclerView.setAdapter(new MyProductoRecyclerViewAdapter(DummyContent.ITEMS, mListener));
-        }
+        RecyclerView recyclerView = view.findViewById(R.id.reciclerView1);
+        ProductoController productoController = new ProductoController(getContext(), getView());
+        productoController.getAll(mListener, recyclerView);
         return view;
     }
-
 
     @Override
     public void onAttach(Context context) {

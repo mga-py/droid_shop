@@ -20,13 +20,15 @@ public class Constantes {
      * Transición Detalle -> Actualización
      */
     public static final int CODIGO_ACTUALIZACION = 101;
-
+    /**
+     * Clave para el valor extra que representa al identificador de un mensaje
+     */
+    public static final String EXTRA_ID = "IDEXTRA";
     /**
      * Puerto que utilizas para la conexión.
      * Dejalo en blanco si no has configurado esta carácteristica.
      */
     private static final String PUERTO_HOST = "";
-
     /**
      * Dirección IP de genymotion o AVD
      */
@@ -35,38 +37,32 @@ public class Constantes {
      * URLs del Web Service
      */
 
+    // Su url 2.101
+
     //LINEA PEDIDO
     public static final String GET_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_lineaPedido.php";
     public static final String GET_BY_ID_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/get_lineaPedido_by_id.php";
     public static final String UPDATE_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/update_lineaPedido.php";
     public static final String DELETE_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/delete_lineaPedido.php";
     public static final String INSERT_LINEAPEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/lineaPedidos/insert_lineaPedido.php";
-
     //PEDIDO
     public static final String GET_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/pedidos/get_pedido.php";
     public static final String GET_BY_ID_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/pedidos/get_pedido_by_id.php";
     public static final String UPDATE_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/pedidos/update_pedido.php";
     public static final String DELETE_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/pedidos/delete_pedido.php";
     public static final String INSERT_PEDIDO = IP + PUERTO_HOST + "/webservice-droidShop/dao/pedidos/insert_pedido.php";
-
     //PRODUCTO
     public static final String GET_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/productos/get_producto.php";
     public static final String GET_BY_ID_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/productos/get_producto_by_id.php";
     public static final String UPDATE_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/productos/update_producto.php";
     public static final String DELETE_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/productos/delete_producto.php";
     public static final String INSERT_PRODUCTO = IP + PUERTO_HOST + "/webservice-droidShop/dao/productos/insert_producto.php";
-
     //USUARIO
     public static final String GET_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/usuarios/get_usuario.php";
     public static final String GET_BY_ID_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/usuarios/get_usuario_by_id.php";
     public static final String UPDATE_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/usuarios/update_usuario.php";
     public static final String DELETE_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/usuarios/delete_usuario.php";
     public static final String INSERT_USUARIO = IP + PUERTO_HOST + "/webservice-droidShop/dao/usuarios/insert_usuario.php";
-
-    /**
-     * Clave para el valor extra que representa al identificador de un mensaje
-     */
-    public static final String EXTRA_ID = "IDEXTRA";
 
 }
 
