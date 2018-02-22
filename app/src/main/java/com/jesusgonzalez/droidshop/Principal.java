@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.jesusgonzalez.droidshop.pedidos.AddPedidoFragment;
+import com.jesusgonzalez.droidshop.pedidos.PedidosFragment;
 import com.jesusgonzalez.droidshop.pedidos.UpdatePedidoFragment;
 import com.jesusgonzalez.droidshop.productos.AddProductoFragment;
 import com.jesusgonzalez.droidshop.productos.ProductoController;
@@ -30,6 +31,7 @@ import com.jesusgonzalez.droidshop.productos.UpdateProductoFragment;
 import com.jesusgonzalez.droidshop.productos.dummy.DummyContent;
 import com.jesusgonzalez.droidshop.usuarios.AddUsuarioFragment;
 import com.jesusgonzalez.droidshop.usuarios.UpdateUsuarioFragment;
+import com.jesusgonzalez.droidshop.usuarios.UsuariosFragment;
 
 import java.io.Serializable;
 
@@ -37,7 +39,8 @@ public class Principal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ProductoFragment.OnListFragmentInteractionListener,
         AddProductoFragment.OnFragmentInteractionListener, UpdateProductoFragment.OnFragmentInteractionListener,
         AddUsuarioFragment.OnFragmentInteractionListener, UpdateUsuarioFragment.OnFragmentInteractionListener,
-        AddPedidoFragment.OnFragmentInteractionListener, UpdatePedidoFragment.OnFragmentInteractionListener {
+        AddPedidoFragment.OnFragmentInteractionListener, UpdatePedidoFragment.OnFragmentInteractionListener,
+        UsuariosFragment.OnListFragmentInteractionListener, PedidosFragment.OnListFragmentInteractionListener {
 
     private static final String LISTA_PRODUCTOS = "com.jesusgonzalez.droidshop.productos.ListaProductos";
 
@@ -69,20 +72,7 @@ public class Principal extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    private void loadFragmentsProductos() {
-        //Bundle bundle = new Bundle();
-        //bundle.putSerializable(LISTA_PRODUCTOS, (Serializable) noticias);
 
-//        ProductoController productoController = new ProductoController(this,getCurrentFocus());
-//        productoController.getAll(mListener);
-
-        FragmentManager fm01 = getSupportFragmentManager();
-        FragmentTransaction ft01 = fm01.beginTransaction();
-        ProductoFragment fragment01 = new ProductoFragment();
-        //fragment01.setArguments(bundle);
-        ft01.replace(R.id.frame_contain01, fragment01);
-        ft01.commit();
-    }
 
     @Override
     public void onBackPressed() {
@@ -114,6 +104,44 @@ public class Principal extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private void loadFragmentsProductos() {
+        //Bundle bundle = new Bundle();
+        //bundle.putSerializable(LISTA_PRODUCTOS, (Serializable) noticias);
+
+//        ProductoController productoController = new ProductoController(this,getCurrentFocus());
+//        productoController.getAll(mListener);
+
+        FragmentManager fm01 = getSupportFragmentManager();
+        FragmentTransaction ft01 = fm01.beginTransaction();
+        ProductoFragment fragment01 = new ProductoFragment();
+        //fragment01.setArguments(bundle);
+        ft01.replace(R.id.frame_contain01, fragment01);
+        ft01.commit();
+    }
+
+    private void loadFragmentsUsuarios() {
+
+
+        FragmentManager fm01 = getSupportFragmentManager();
+        FragmentTransaction ft01 = fm01.beginTransaction();
+        UsuariosFragment fragment01 = new UsuariosFragment();
+        //fragment01.setArguments(bundle);
+        ft01.replace(R.id.frame_contain01, fragment01);
+        ft01.commit();
+    }
+
+    private void loadFragmentsPedidos() {
+
+
+        FragmentManager fm01 = getSupportFragmentManager();
+        FragmentTransaction ft01 = fm01.beginTransaction();
+        PedidosFragment fragment01 = new PedidosFragment();
+        //fragment01.setArguments(bundle);
+        ft01.replace(R.id.frame_contain01, fragment01);
+        ft01.commit();
     }
 
     @SuppressLint("WrongConstant")
@@ -160,6 +188,7 @@ public class Principal extends AppCompatActivity
 
             //PEDIDOS
         } else if (id == R.id.nav_orders) {
+            loadFragmentsPedidos();
             FloatingActionsMenu menu = findViewById(R.id.menu_fab);
             menu.setVisibility(1);
             //ADD
@@ -195,6 +224,8 @@ public class Principal extends AppCompatActivity
             menu.setVisibility(1);
             //CLIENTES
         } else if (id == R.id.nav_clients) {
+            loadFragmentsUsuarios();
+
             FloatingActionsMenu menu = findViewById(R.id.menu_fab);
             menu.setVisibility(1);
             //ADD
@@ -303,4 +334,13 @@ public class Principal extends AppCompatActivity
     public void onFragmentInteraction(Uri uri) {
     }
 
+    @Override
+    public void onListFragmentInteraction(com.jesusgonzalez.droidshop.pedidos.dummy.DummyContent.DummyItem item) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(com.jesusgonzalez.droidshop.usuarios.dummy.DummyContent.DummyItem item) {
+
+    }
 }
