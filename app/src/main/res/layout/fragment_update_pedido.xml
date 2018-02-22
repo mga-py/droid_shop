@@ -16,8 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Código Pedido" />
+            android:hint="Código Pedido"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -28,8 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Empleado" />
+            android:hint="Empleado"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -40,8 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Empresa Transporte" />
+            android:hint="Empresa Transporte"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -52,8 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Fecha Pedido" />
+            android:hint="Fecha Pedido"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -64,8 +64,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="ID Factura" />
+            android:hint="ID Factura"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -76,8 +76,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Facturado" />
+            android:hint="Facturado"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -88,8 +88,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Método Pago" />
+            android:hint="Método Pago"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -100,8 +100,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="ID Usuario" />
+            android:hint="ID Usuario"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -112,8 +112,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Activo" />
+            android:hint="Activo"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"

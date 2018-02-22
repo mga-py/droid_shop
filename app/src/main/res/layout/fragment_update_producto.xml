@@ -15,8 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Código Producto" />
+            android:hint="Código Producto"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -27,8 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Descripción" />
+            android:hint="Descripción"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -39,8 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Proveedor" />
+            android:hint="Proveedor"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -51,8 +51,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Precio Coste" />
+            android:hint="Precio Coste"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -63,8 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="PVP" />
+            android:hint="PVP"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -75,8 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="IVA" />
+            android:hint="IVA"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -87,8 +87,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Activo" />
+            android:hint="Activo"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
