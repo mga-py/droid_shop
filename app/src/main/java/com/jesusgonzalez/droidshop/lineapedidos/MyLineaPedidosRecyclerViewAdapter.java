@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.jesusgonzalez.droidshop.R;
 import com.jesusgonzalez.droidshop.lineapedidos.LineaPedidosFragment.OnListFragmentInteractionListener;
 import com.jesusgonzalez.droidshop.lineapedidos.dummy.DummyContent.DummyItem;
 

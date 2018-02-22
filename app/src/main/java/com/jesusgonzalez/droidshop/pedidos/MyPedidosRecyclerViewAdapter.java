@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.jesusgonzalez.droidshop.R;
 import com.jesusgonzalez.droidshop.pedidos.PedidosFragment.OnListFragmentInteractionListener;
 import com.jesusgonzalez.droidshop.pedidos.dummy.DummyContent.DummyItem;
 
@@ -36,8 +37,8 @@ public class MyPedidosRecyclerViewAdapter extends RecyclerView.Adapter<MyPedidos
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).codigoPedido);
+        holder.mContentView.setText(mValues.get(position).fechaPedido);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,8 +66,8 @@ public class MyPedidosRecyclerViewAdapter extends RecyclerView.Adapter<MyPedidos
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mIdView = (TextView) view.findViewById(R.id.tv_idPedido);
+            mContentView = (TextView) view.findViewById(R.id.tv_fechaPedido);
         }
 
         @Override

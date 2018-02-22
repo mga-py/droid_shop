@@ -51,6 +51,9 @@ public class UsuariosFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        UsuarioController usuarioController = new UsuarioController(getContext(), getView());
+        usuarioController.getAll(mListener);
+
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }

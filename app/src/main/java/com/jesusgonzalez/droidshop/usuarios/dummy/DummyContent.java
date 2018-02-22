@@ -16,7 +16,7 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static List<DummyItem> ITEMS = new ArrayList<DummyItem>();
 
     /**
      * A map of sample (dummy) items, by ID.
@@ -27,9 +27,9 @@ public class DummyContent {
 
     static {
         // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
-        }
+//        for (int i = 1; i <= COUNT; i++) {
+//            addItem(createDummyItem(i));
+//        }
     }
 
     private static void addItem(DummyItem item) {
@@ -37,9 +37,9 @@ public class DummyContent {
         ITEM_MAP.put(item.id, item);
     }
 
-    private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
-    }
+//    private static DummyItem createDummyItem(int position) {
+//        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+//    }
 
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
@@ -54,19 +54,46 @@ public class DummyContent {
      * A dummy item representing a piece of content.
      */
     public static class DummyItem {
+        //Atributos
         public final String id;
-        public final String content;
-        public final String details;
+        public final String codigoCliente;
+        public final String nif;
+        public final String nombre;
+        public final String apellido1;
+        public final String apellido2;
+        public final String numeroCuenta;
+        public final String rol;
+        public final boolean activo;
 
-        public DummyItem(String id, String content, String details) {
+        //Constructores
+
+
+        public DummyItem(String id, String codigoCliente, String nif, String nombre, String apellido1, String apellido2, String numeroCuenta, String rol, boolean activo) {
             this.id = id;
-            this.content = content;
-            this.details = details;
+            this.codigoCliente = codigoCliente;
+            this.nif = nif;
+            this.nombre = nombre;
+            this.apellido1 = apellido1;
+            this.apellido2 = apellido2;
+            this.numeroCuenta = numeroCuenta;
+            this.rol = rol;
+            this.activo = activo;
         }
+
 
         @Override
         public String toString() {
-            return content;
+            return "DummyItem{" +
+                    "id=" + id +
+                    ", codigoCliente='" + codigoCliente + '\'' +
+                    ", nif='" + nif + '\'' +
+                    ", nombre='" + nombre + '\'' +
+                    ", apellido1='" + apellido1 + '\'' +
+                    ", apellido2='" + apellido2 + '\'' +
+                    ", numeroCuenta='" + numeroCuenta + '\'' +
+                    ", rol='" + rol + '\'' +
+                    ", activo=" + activo +
+                    '}';
         }
     }
 }

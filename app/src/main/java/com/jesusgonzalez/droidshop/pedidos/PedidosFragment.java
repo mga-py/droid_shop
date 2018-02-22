@@ -51,6 +51,9 @@ public class PedidosFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        PedidoController pedidoController = new PedidoController(getContext(), getView());
+        pedidoController.getAll(mListener);
+
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }

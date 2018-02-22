@@ -13,11 +13,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
 import com.jesusgonzalez.droidshop.Constantes;
 import com.jesusgonzalez.droidshop.VolleySingleton;
+import com.jesusgonzalez.droidshop.pedidos.dummy.DummyContent;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -98,14 +101,14 @@ public class PedidoController {
     }
 
 
-    public void getAll() {
+    public void getAll(final PedidosFragment.OnListFragmentInteractionListener listener) {
         Toast.makeText(context, "Empezando.....", Toast.LENGTH_SHORT).show();
         VolleySingleton.getInstance(context).addToRequestQueue(
                 new JsonObjectRequest(Request.Method.GET, Constantes.GET_PEDIDO, null,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                procesarRespuesta(response); // Procesar la respuesta Json
+                                procesarRespuesta(response, listener); // Procesar la respuesta Json
                                 Toast.makeText(context, "PROCESANDOO.....", Toast.LENGTH_SHORT).show();
                             }
                         },
@@ -120,7 +123,7 @@ public class PedidoController {
         );
     }
 
-    private void procesarRespuesta(JSONObject response) {
+    private void procesarRespuesta(JSONObject response, PedidosFragment.OnListFragmentInteractionListener listener) {
         try {
             Log.d(TAG, "Respuesta: " + response.toString());
             String estado = response.getString("estado");
@@ -128,10 +131,12 @@ public class PedidoController {
             switch (estado) {
                 case "1": // correcto
                     JSONArray mensaje = response.getJSONArray("pedido");
-                    Pedido[] mensajes = gson.fromJson(mensaje.toString(), Pedido[].class); // preparar con Gson
+                    DummyContent.DummyItem[] pedidos = gson.fromJson(mensaje.toString(), DummyContent.DummyItem[].class); // preparar con Gson
+                    DummyContent.ITEMS = new ArrayList<>(Arrays.asList(pedidos));
                     // Inicializar adaptador
-                    ArrayAdapter<Pedido> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, mensajes);
-// Lista de linea pedido
+
+                    Log.e("boveda", pedidos.toString());
+                    ArrayAdapter<DummyContent.DummyItem> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, pedidos);
                     //lvLineaPedido.setAdapter(adapter);
                     break;
                 case "2": // error

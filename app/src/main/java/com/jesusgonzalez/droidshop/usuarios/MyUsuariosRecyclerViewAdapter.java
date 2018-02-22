@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.jesusgonzalez.droidshop.R;
 import com.jesusgonzalez.droidshop.usuarios.UsuariosFragment.OnListFragmentInteractionListener;
 import com.jesusgonzalez.droidshop.usuarios.dummy.DummyContent.DummyItem;
 
@@ -36,8 +37,8 @@ public class MyUsuariosRecyclerViewAdapter extends RecyclerView.Adapter<MyUsuari
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).codigoCliente);
+        holder.mContentView.setText(mValues.get(position).nombre);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,8 +66,8 @@ public class MyUsuariosRecyclerViewAdapter extends RecyclerView.Adapter<MyUsuari
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mIdView = (TextView) view.findViewById(R.id.tv_idUsuarioList);
+            mContentView = (TextView) view.findViewById(R.id.tv_nombreUsuarioList);
         }
 
         @Override

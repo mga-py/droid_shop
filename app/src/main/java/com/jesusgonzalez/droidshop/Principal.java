@@ -17,15 +17,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jesusgonzalez.droidshop.pedidos.PedidosFragment;
 import com.jesusgonzalez.droidshop.productos.AddProductoFragment;
 import com.jesusgonzalez.droidshop.productos.ProductoController;
 import com.jesusgonzalez.droidshop.productos.ProductoFragment;
 import com.jesusgonzalez.droidshop.productos.dummy.DummyContent;
+import com.jesusgonzalez.droidshop.usuarios.UsuariosFragment;
 
 import java.io.Serializable;
 
 public class Principal extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ProductoFragment.OnListFragmentInteractionListener, AddProductoFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ProductoFragment.OnListFragmentInteractionListener, AddProductoFragment.OnFragmentInteractionListener, UsuariosFragment.OnListFragmentInteractionListener,
+        PedidosFragment.OnListFragmentInteractionListener {
 
     private static final String LISTA_PRODUCTOS = "com.jesusgonzalez.droidshop.productos.ListaProductos";
 
@@ -57,6 +60,21 @@ public class Principal extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    private void loadFragmentsUsuariosAdd() {
+        //Bundle bundle = new Bundle();
+        //bundle.putSerializable(LISTA_PRODUCTOS, (Serializable) noticias);
+
+//        ProductoController productoController = new ProductoController(this,getCurrentFocus());
+//        productoController.getAll(mListener);
+
+        FragmentManager fm01 = getSupportFragmentManager();
+        FragmentTransaction ft01 = fm01.beginTransaction();
+        UsuariosFragment fragment01 = new UsuariosFragment();
+        //fragment01.setArguments(bundle);
+        ft01.replace(R.id.frame_contain01, fragment01);
+        ft01.commit();
+    }
+
     private void loadFragmentsProductos() {
         //Bundle bundle = new Bundle();
         //bundle.putSerializable(LISTA_PRODUCTOS, (Serializable) noticias);
@@ -67,6 +85,21 @@ public class Principal extends AppCompatActivity
         FragmentManager fm01 = getSupportFragmentManager();
         FragmentTransaction ft01 = fm01.beginTransaction();
         ProductoFragment fragment01 = new ProductoFragment();
+        //fragment01.setArguments(bundle);
+        ft01.replace(R.id.frame_contain01, fragment01);
+        ft01.commit();
+    }
+
+    private void loadFragmentsPedidos() {
+        //Bundle bundle = new Bundle();
+        //bundle.putSerializable(LISTA_PRODUCTOS, (Serializable) noticias);
+
+//        ProductoController productoController = new ProductoController(this,getCurrentFocus());
+//        productoController.getAll(mListener);
+
+        FragmentManager fm01 = getSupportFragmentManager();
+        FragmentTransaction ft01 = fm01.beginTransaction();
+        PedidosFragment fragment01 = new PedidosFragment();
         //fragment01.setArguments(bundle);
         ft01.replace(R.id.frame_contain01, fragment01);
         ft01.commit();
@@ -117,15 +150,17 @@ public class Principal extends AppCompatActivity
 
 
         } else if (id == R.id.nav_orders) {
+            loadFragmentsPedidos();
 
         } else if (id == R.id.nav_cart) {
 
         } else if (id == R.id.nav_clients) {
+            loadFragmentsUsuariosAdd();
 
         } else if (id == R.id.nav_profile) {
 
         } else if (id == R.id.nav_logout) {
-            loadFragmentsadd();
+            loadFragmentsProductos();
 
 
 
@@ -141,7 +176,8 @@ public class Principal extends AppCompatActivity
 
     }
 
-    private void loadFragmentsadd() {
+
+    private void loadFragmentsProductosAdd() {
         //Bundle bundle = new Bundle();
         //bundle.putSerializable(LISTA_PRODUCTOS, (Serializable) noticias);
 
@@ -158,6 +194,16 @@ public class Principal extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(com.jesusgonzalez.droidshop.usuarios.dummy.DummyContent.DummyItem item) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(com.jesusgonzalez.droidshop.pedidos.dummy.DummyContent.DummyItem item) {
 
     }
 }

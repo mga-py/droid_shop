@@ -1,6 +1,7 @@
 package com.jesusgonzalez.droidshop.pedidos.dummy;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static List<DummyItem> ITEMS = new ArrayList<DummyItem>();
 
     /**
      * A map of sample (dummy) items, by ID.
@@ -27,9 +28,7 @@ public class DummyContent {
 
     static {
         // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
-        }
+
     }
 
     private static void addItem(DummyItem item) {
@@ -37,9 +36,15 @@ public class DummyContent {
         ITEM_MAP.put(item.id, item);
     }
 
-    private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+    public static void addlistDumyItem(List list) {
+        for (int i = 0; i < list.size(); i++) {
+            DummyItem dummyItemTemp = (DummyItem) list.get(i);
+            addItem(dummyItemTemp);
+        }
+
+
     }
+
 
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
@@ -55,18 +60,52 @@ public class DummyContent {
      */
     public static class DummyItem {
         public final String id;
-        public final String content;
-        public final String details;
+        public final String codigoPedido;
+        public final String idEmpleadoEmpaqueta;
+        public final String empresaTransporte;
+        public final String fechaPedido;
+        public final String fechaEnvio;
+        public final String fechaEnrega;
+        public final String fechaPago;
+        public final String idFactura;
+        public final String facturado;
+        public final String metodoPago;
+        public final String activo;
+        public final String idUsuario;
 
-        public DummyItem(String id, String content, String details) {
+        public DummyItem(String id, String codigoPedido, String idEmpleadoEmpaqueta, String empresaTransporte, String fechaPedido, String fechaEnvio, String fechaEnrega, String fechaPago, String idFactura, String facturado, String metodoPago, String activo, String idUsuario) {
             this.id = id;
-            this.content = content;
-            this.details = details;
+            this.codigoPedido = codigoPedido;
+            this.idEmpleadoEmpaqueta = idEmpleadoEmpaqueta;
+            this.empresaTransporte = empresaTransporte;
+            this.fechaPedido = fechaPedido;
+            this.fechaEnvio = fechaEnvio;
+            this.fechaEnrega = fechaEnrega;
+            this.fechaPago = fechaPago;
+            this.idFactura = idFactura;
+            this.facturado = facturado;
+            this.metodoPago = metodoPago;
+            this.activo = activo;
+            this.idUsuario = idUsuario;
         }
 
         @Override
         public String toString() {
-            return content;
+            return "DummyItem{" +
+                    "id='" + id + '\'' +
+                    ", codigoPedido='" + codigoPedido + '\'' +
+                    ", idEmpleadoEmpaqueta='" + idEmpleadoEmpaqueta + '\'' +
+                    ", empresaTransporte='" + empresaTransporte + '\'' +
+                    ", fechaPedido='" + fechaPedido + '\'' +
+                    ", fechaEnvio='" + fechaEnvio + '\'' +
+                    ", fechaEnrega='" + fechaEnrega + '\'' +
+                    ", fechaPago='" + fechaPago + '\'' +
+                    ", idFactura='" + idFactura + '\'' +
+                    ", facturado='" + facturado + '\'' +
+                    ", metodoPago='" + metodoPago + '\'' +
+                    ", activo='" + activo + '\'' +
+                    ", idUsuario='" + idUsuario + '\'' +
+                    '}';
         }
     }
 }
