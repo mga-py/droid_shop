@@ -27,43 +27,44 @@
         layout="@layout/content_principal" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
-        android:id="@+id/menu_fab1"
+        android:id="@+id/menu_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
 
+        android:visibility="invisible"
         fab:fab_addButtonColorNormal="?attr/colorPrimary"
         fab:fab_addButtonSize="normal"
         fab:fab_labelStyle="@style/Etiquetas"
         fab:fab_labelsPosition="left">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/accion_favorito1"
+            android:id="@+id/fabDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="?attr/colorAccent"
             fab:fab_icon="@drawable/ic_menu_slideshow"
             fab:fab_size="mini"
-            fab:fab_title="Favorito" />
+            fab:fab_title="Borrar" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/accion_buscar1"
+            android:id="@+id/fabUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="?attr/colorAccent"
             fab:fab_icon="@drawable/ic_account_balance_wallet_black_24dp"
             fab:fab_size="mini"
-            fab:fab_title="Buscar" />
+            fab:fab_title="Actualizar" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/accion_carrito1"
+            android:id="@+id/fabAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="?attr/colorAccent"
             fab:fab_icon="@drawable/ic_menu_gallery"
             fab:fab_size="mini"
-            fab:fab_title="Añadir a la cesta" />
+            fab:fab_title="Añadir" />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 

@@ -122,7 +122,8 @@ public class AddProductoFragment extends Fragment {
 
     public void insertarProducto(View view) {
         ProductoController productoController = new ProductoController(getContext(), view);
-        productoController.insert(String.valueOf(etCodigoProductoAdd.getText().toString()), String.valueOf(etDescripcionProductoAdd.getText()), String.valueOf(etProveedorProductoAdd.getText().toString()), String.valueOf(etPrecioCosteProductoAdd.getText().toString()), String.valueOf(etPvpProductoAdd.getText()),
+        productoController.insert(String.valueOf(etCodigoProductoAdd.getText().toString()), String.valueOf(etDescripcionProductoAdd.getText()),
+                String.valueOf(etProveedorProductoAdd.getText().toString()), String.valueOf(etPrecioCosteProductoAdd.getText().toString()), String.valueOf(etPvpProductoAdd.getText()),
                 String.valueOf(etIvaProductoAdd.getText()), "123456", "20", "10", "50", "", "1");
 
 

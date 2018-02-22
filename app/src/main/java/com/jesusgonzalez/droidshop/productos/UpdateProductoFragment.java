@@ -27,15 +27,16 @@ public class UpdateProductoFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
 
-    EditText etCodigoProductoUpdate = getView().findViewById(R.id.et_codigoProducto_update);
-    EditText etDescripcionProductoUpdate = getView().findViewById(R.id.et_descripcion_update);
-    EditText etProveedorProductoUpdate = getView().findViewById(R.id.et_proveedor_update);
-    EditText etPrecioCosteProductoUpdate = getView().findViewById(R.id.et_precioCoste_update);
-    EditText etPvpProductoUpdate = getView().findViewById(R.id.et_pvp_update);
-    EditText etIvaProductoUpdate = getView().findViewById(R.id.et_iva_update);
-    EditText etActivoProductoUpdate = getView().findViewById(R.id.et_activoProducto_update);
+    EditText etCodigoProductoUpdate;
+    EditText etDescripcionProductoUpdate;
+    EditText etProveedorProductoUpdate;
+    EditText etPrecioCosteProductoUpdate;
+    EditText etPvpProductoUpdate;
+    EditText etIvaProductoUpdate;
+    EditText etActivoProductoUpdate;
 
-    Button button = getView().findViewById(R.id.bt_updateProducto);
+
+    Button button;
 
 
 
@@ -74,13 +75,34 @@ public class UpdateProductoFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_update_producto, container, false);
+        View view = inflater.inflate(R.layout.fragment_update_producto, container, false);
+
+
+        etCodigoProductoUpdate = view.findViewById(R.id.et_codigoProducto_update);
+        etDescripcionProductoUpdate = view.findViewById(R.id.et_descripcion_update);
+        etProveedorProductoUpdate = view.findViewById(R.id.et_proveedor_update);
+        etPrecioCosteProductoUpdate = view.findViewById(R.id.et_precioCoste_update);
+        etPvpProductoUpdate = view.findViewById(R.id.et_pvp_update);
+        etIvaProductoUpdate = view.findViewById(R.id.et_iva_update);
+        etActivoProductoUpdate = view.findViewById(R.id.et_activoProducto_update);
+        button = view.findViewById(R.id.bt_updateProducto);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                modificarProducto(view);
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -88,6 +110,14 @@ public class UpdateProductoFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+
+    public void modificarProducto(View view) {
+        ProductoController productoController = new ProductoController(getContext(), view);
+        productoController.update(String.valueOf(etCodigoProductoUpdate.getText().toString()), String.valueOf(etDescripcionProductoUpdate.getText()),
+                String.valueOf(etProveedorProductoUpdate.getText().toString()), String.valueOf(etPrecioCosteProductoUpdate.getText().toString()), String.valueOf(etPvpProductoUpdate.getText()),
+                String.valueOf(etIvaProductoUpdate.getText()), String.valueOf(etActivoProductoUpdate.getText()), "1");
     }
 
     @Override
