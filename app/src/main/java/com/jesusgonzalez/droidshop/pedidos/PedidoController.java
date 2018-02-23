@@ -39,7 +39,7 @@ public class PedidoController {
     }
 
     public void insert(String codigo_pedido, String id_empleado_empaqueta, String empresa_transporte, String fecha_pedido, String fecha_envio, String fecha_entrega,
-                       String fecha_pago, String id_factura, String facturado, String metodo_pago, String activo, String id_usuario) {
+                       String fecha_pago, String id_factura, String facturado, String metodo_pago, String id_usuario, String activo) {
         final boolean resultado = false;
         final HashMap<String, String> map = new HashMap<>();
         map.put("codigo_pedido", String.valueOf(codigo_pedido));
@@ -52,8 +52,8 @@ public class PedidoController {
         map.put("id_factura", String.valueOf(id_factura));
         map.put("facturado", String.valueOf(facturado));
         map.put("metodo_pago", String.valueOf(metodo_pago));
-        map.put("activo", String.valueOf(activo));
         map.put("id_usuario", String.valueOf(id_usuario));
+        map.put("activo", String.valueOf(activo));
 
 
         // Crear nuevo objeto Json basado en el mapa
@@ -200,24 +200,20 @@ public class PedidoController {
     }
 
 
-
-    public void update(String codigo_pedido, String id_empleado_empaqueta, String empresa_transporte, String fecha_pedido, String fecha_envio, String fecha_entrega,
-                       String fecha_pago, String id_factura, String facturado, String metodo_pago, String activo, String id_usuario, String id_pedido) {
+    public void update(String codigo_pedido, String id_empleado_empaqueta, String empresa_transporte, String fecha_pedido, String id_factura,
+                       String facturado, String metodo_pago, String id_usuario, String activo, String id) {
         final boolean resultado = false;
         final HashMap<String, String> map = new HashMap<>();
         map.put("codigo_pedido", String.valueOf(codigo_pedido));
         map.put("id_empleado_empaqueta", String.valueOf(id_empleado_empaqueta));
         map.put("empresa_transporte", String.valueOf(empresa_transporte));
         map.put("fecha_pedido", String.valueOf(fecha_pedido));
-        map.put("fecha_envio", String.valueOf(fecha_envio));
-        map.put("fecha_entrega", String.valueOf(fecha_entrega));
-        map.put("fecha_pago", String.valueOf(fecha_pago));
         map.put("id_factura", String.valueOf(id_factura));
         map.put("facturado", String.valueOf(facturado));
         map.put("metodo_pago", String.valueOf(metodo_pago));
-        map.put("activo", String.valueOf(activo));
         map.put("id_usuario", String.valueOf(id_usuario));
-        map.put("id_pedido", String.valueOf(id_pedido));
+        map.put("activo", String.valueOf(activo));
+        map.put("id", String.valueOf(id));
 
 
         // Crear nuevo objeto Json basado en el mapa
@@ -251,7 +247,7 @@ public class PedidoController {
             String estado = response.getString("estado");  // Obtener atributo estado
             switch (estado) {
                 case "1": // Correcto
-                    Toast.makeText(context, "Message added suscessfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Pedido update suscessfully", Toast.LENGTH_LONG).show();
                     break;
                 case "2": // error
                     Toast.makeText(context, response.getString("mensaje"), Toast.LENGTH_LONG).show();

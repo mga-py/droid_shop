@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.jesusgonzalez.droidshop.R;
 
@@ -23,6 +25,18 @@ public class UpdatePedidoFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+
+    EditText etCodigoPedido;
+    EditText etEmpleado;
+    EditText etEmpresaTransporte;
+    EditText etFechaPedido;
+    EditText etIdFactura;
+    EditText etFacturado;
+    EditText etMetodoPago;
+    EditText etIdUsuario;
+    EditText etActivo;
+    Button button;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -62,12 +76,47 @@ public class UpdatePedidoFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_update_pedido, container, false);
+        etCodigoPedido = view.findViewById(R.id.et_codigoPedido_update);
+        etEmpleado = view.findViewById(R.id.et_empleado_update);
+        etEmpresaTransporte = view.findViewById(R.id.et_empresaTransporte_update);
+        etFechaPedido = view.findViewById(R.id.et_fechaPedido_update);
+        etIdFactura = view.findViewById(R.id.et_idFactura_update);
+        etFacturado = view.findViewById(R.id.et_facturado_update);
+        etMetodoPago = view.findViewById(R.id.et_metodoPago_update);
+        etIdUsuario = view.findViewById(R.id.et_idUsuario_update);
+        etActivo = view.findViewById(R.id.et_activoPedido_update);
+
+        button = view.findViewById(R.id.bt_updatePedido);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updatePedido(view);
+            }
+        });
+
         // Inflate the layout for this fragment
         return view;
     }
+
+
+    public void updatePedido(View view) {
+        PedidoController pedidoController = new PedidoController(getContext(), view);
+        pedidoController.update(
+                String.valueOf(etCodigoPedido.getText().toString()),
+                String.valueOf(etEmpleado.getText().toString()),
+                String.valueOf(etEmpresaTransporte.getText().toString()),
+                String.valueOf(etFechaPedido.getText().toString()),
+                String.valueOf(etIdFactura.getText().toString()),
+                String.valueOf(etFacturado.getText().toString()),
+                String.valueOf(etMetodoPago.getText().toString()),
+                String.valueOf(etIdUsuario.getText().toString()),
+                String.valueOf(etActivo.getText().toString()),
+                "1");
+
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
