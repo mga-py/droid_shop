@@ -43,8 +43,8 @@
             android:id="@+id/fabDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="?attr/colorAccent"
-            fab:fab_icon="@drawable/ic_menu_slideshow"
+            app:fab_colorNormal="?attr/colorPrimary"
+            app:fab_icon="@android:drawable/ic_menu_delete"
             fab:fab_size="mini"
             fab:fab_title="Borrar" />
 
@@ -52,8 +52,8 @@
             android:id="@+id/fabUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="?attr/colorAccent"
-            fab:fab_icon="@drawable/ic_account_balance_wallet_black_24dp"
+            app:fab_colorNormal="?attr/colorPrimary"
+            app:fab_icon="@android:drawable/ic_menu_edit"
             fab:fab_size="mini"
             fab:fab_title="Actualizar" />
 
@@ -61,8 +61,8 @@
             android:id="@+id/fabAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="?attr/colorAccent"
-            fab:fab_icon="@drawable/ic_menu_gallery"
+            app:fab_colorNormal="?attr/colorPrimary"
+            app:fab_icon="@android:drawable/ic_menu_add"
             fab:fab_size="mini"
             fab:fab_title="Añadir" />
 
