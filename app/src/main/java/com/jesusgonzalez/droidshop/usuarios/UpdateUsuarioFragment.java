@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.jesusgonzalez.droidshop.R;
 
@@ -23,6 +25,15 @@ public class UpdateUsuarioFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    EditText etCodigoClienteUpdate;
+    EditText etNifUpdate;
+    EditText etNombreUpdate;
+    EditText etRolUpdate;
+    EditText etActivoUpdate;
+
+    Button button;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -64,9 +75,36 @@ public class UpdateUsuarioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_update_usuario, container, false);
+
+        etCodigoClienteUpdate = view.findViewById(R.id.et_codigoCliente_update);
+        etNifUpdate = view.findViewById(R.id.et_nif_update);
+        etNombreUpdate = view.findViewById(R.id.et_nombre_update);
+        etRolUpdate = view.findViewById(R.id.et_rol_update);
+        etActivoUpdate = view.findViewById(R.id.et_activoUsuario_update);
+
+        button = view.findViewById(R.id.bt_updateUsuario);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateUsuario(view);
+            }
+        });
+
+
         // Inflate the layout for this fragment
         return view;
     }
+
+    public void updateUsuario(View view) {
+        UsuarioController usuarioController = new UsuarioController(getContext(), view);
+        usuarioController.update(
+                String.valueOf(etNifUpdate.getText()),
+                String.valueOf(etNombreUpdate.getText()),
+                String.valueOf(etRolUpdate.getText()),
+                String.valueOf(etActivoUpdate.getText()),
+                String.valueOf(etCodigoClienteUpdate.getText()));
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

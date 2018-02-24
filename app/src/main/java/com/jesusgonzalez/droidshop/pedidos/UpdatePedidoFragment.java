@@ -104,7 +104,6 @@ public class UpdatePedidoFragment extends Fragment {
     public void updatePedido(View view) {
         PedidoController pedidoController = new PedidoController(getContext(), view);
         pedidoController.update(
-                String.valueOf(etCodigoPedido.getText().toString()),
                 String.valueOf(etEmpleado.getText().toString()),
                 String.valueOf(etEmpresaTransporte.getText().toString()),
                 String.valueOf(etFechaPedido.getText().toString()),
@@ -113,7 +112,7 @@ public class UpdatePedidoFragment extends Fragment {
                 String.valueOf(etMetodoPago.getText().toString()),
                 String.valueOf(etIdUsuario.getText().toString()),
                 String.valueOf(etActivo.getText().toString()),
-                "1");
+                String.valueOf(etCodigoPedido.getText().toString()));
 
     }
 

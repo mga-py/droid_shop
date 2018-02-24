@@ -189,17 +189,16 @@ public class ProductoController {
         );
     }
 
-    public void update(String codigo_producto, String descripcion, String id_proveedor, String precio_coste, String pvp, String iva, String activo, String id) {
+    public void update(String descripcion, String id_proveedor, String precio_coste, String pvp, String iva, String activo, String codigo_producto) {
         final boolean resultado = false;
         final HashMap<String, String> map = new HashMap<>();
-        map.put("codigo_producto", String.valueOf(codigo_producto));
         map.put("descripcion", String.valueOf(descripcion));
         map.put("id_proveedor", String.valueOf(id_proveedor));
         map.put("precio_coste", String.valueOf(precio_coste));
         map.put("pvp", String.valueOf(pvp));
         map.put("iva", String.valueOf(iva));
         map.put("activo", String.valueOf(activo));
-        map.put("id", String.valueOf(id));
+        map.put("codigo_producto", String.valueOf(codigo_producto));
 
 
         // Crear nuevo objeto Json basado en el mapa

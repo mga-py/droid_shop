@@ -38,8 +38,7 @@ public class UsuarioController {
         this.view = view;
     }
 
-    public void insert(String codigo_cliente, String nif, String nombre, String apellido1, String apellido2, String numero_cuenta,
-                       String rol, String activo, String id_usuario) {
+    public void insert(String codigo_cliente, String nif, String nombre, String apellido1, String apellido2, String numero_cuenta, String rol, String activo) {
         final boolean resultado = false;
         final HashMap<String, String> map = new HashMap<>();
         map.put("codigo_cliente", String.valueOf(codigo_cliente));
@@ -50,7 +49,6 @@ public class UsuarioController {
         map.put("numero_cuenta", String.valueOf(numero_cuenta));
         map.put("rol", String.valueOf(rol));
         map.put("activo", String.valueOf(activo));
-        map.put("id_usuario", String.valueOf(id_usuario));
 
         // Crear nuevo objeto Json basado en el mapa
         JSONObject jsonObject = new JSONObject(map);
@@ -191,18 +189,14 @@ public class UsuarioController {
         );
     }
 
-    public void upadate(String codigo_cliente, String nif, String nombre, String apellido1, String apellido2, String numero_cuenta,
-                        String rol, String activo) {
+    public void update(String nif, String nombre, String rol, String activo, String codigo_cliente) {
         final boolean resultado = false;
         final HashMap<String, String> map = new HashMap<>();
-        map.put("codigo_cliente", String.valueOf(codigo_cliente));
         map.put("nif", String.valueOf(nif));
         map.put("nombre", String.valueOf(nombre));
-        map.put("apellido1", String.valueOf(apellido1));
-        map.put("apellido2", String.valueOf(apellido2));
-        map.put("numero_cuenta", String.valueOf(numero_cuenta));
         map.put("rol", String.valueOf(rol));
         map.put("activo", String.valueOf(activo));
+        map.put("codigo_cliente", String.valueOf(codigo_cliente));
 
         // Crear nuevo objeto Json basado en el mapa
         JSONObject jsonObject = new JSONObject(map);

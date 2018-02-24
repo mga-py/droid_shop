@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.jesusgonzalez.droidshop.R;
 
@@ -23,6 +25,15 @@ public class AddUsuarioFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+
+    EditText etCodigoClienteAdd;
+    EditText etNifAdd;
+    EditText etNombreAdd;
+    EditText etRolAdd;
+    EditText etActivoAdd;
+
+    Button button;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -62,12 +73,43 @@ public class AddUsuarioFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_usuario, container, false);
+
+        etCodigoClienteAdd = view.findViewById(R.id.et_codigoCliente_add);
+        etNifAdd = view.findViewById(R.id.et_nif_add);
+        etNombreAdd = view.findViewById(R.id.et_nombre_add);
+        etRolAdd = view.findViewById(R.id.et_rol_add);
+        etActivoAdd = view.findViewById(R.id.et_activoUsuario_add);
+
+        button = view.findViewById(R.id.bt_addUsuario);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                insertUsuario(view);
+            }
+        });
+
+
         // Inflate the layout for this fragment
         return view;
     }
+
+
+    public void insertUsuario(View view) {
+        UsuarioController usuarioController = new UsuarioController(getContext(), view);
+        usuarioController.insert(
+                String.valueOf(etCodigoClienteAdd.getText()),
+                String.valueOf(etNifAdd.getText()),
+                String.valueOf(etNombreAdd.getText()),
+                "",
+                "",
+                "123456789",
+                String.valueOf(etRolAdd.getText()),
+                String.valueOf(etActivoAdd.getText()));
+
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

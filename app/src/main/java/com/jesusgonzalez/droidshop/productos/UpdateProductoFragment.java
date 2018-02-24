@@ -115,9 +115,9 @@ public class UpdateProductoFragment extends Fragment {
 
     public void modificarProducto(View view) {
         ProductoController productoController = new ProductoController(getContext(), view);
-        productoController.update(String.valueOf(etCodigoProductoUpdate.getText().toString()), String.valueOf(etDescripcionProductoUpdate.getText()),
+        productoController.update(String.valueOf(etDescripcionProductoUpdate.getText()),
                 String.valueOf(etProveedorProductoUpdate.getText().toString()), String.valueOf(etPrecioCosteProductoUpdate.getText().toString()), String.valueOf(etPvpProductoUpdate.getText()),
-                String.valueOf(etIvaProductoUpdate.getText()), String.valueOf(etActivoProductoUpdate.getText()), "1");
+                String.valueOf(etIvaProductoUpdate.getText()), String.valueOf(etActivoProductoUpdate.getText()), String.valueOf(etCodigoProductoUpdate.getText().toString()));
     }
 
     @Override

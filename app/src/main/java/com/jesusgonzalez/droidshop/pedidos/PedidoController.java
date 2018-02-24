@@ -200,11 +200,10 @@ public class PedidoController {
     }
 
 
-    public void update(String codigo_pedido, String id_empleado_empaqueta, String empresa_transporte, String fecha_pedido, String id_factura,
-                       String facturado, String metodo_pago, String id_usuario, String activo, String id) {
+    public void update(String id_empleado_empaqueta, String empresa_transporte, String fecha_pedido, String id_factura,
+                       String facturado, String metodo_pago, String id_usuario, String activo, String codigo_pedido) {
         final boolean resultado = false;
         final HashMap<String, String> map = new HashMap<>();
-        map.put("codigo_pedido", String.valueOf(codigo_pedido));
         map.put("id_empleado_empaqueta", String.valueOf(id_empleado_empaqueta));
         map.put("empresa_transporte", String.valueOf(empresa_transporte));
         map.put("fecha_pedido", String.valueOf(fecha_pedido));
@@ -213,7 +212,7 @@ public class PedidoController {
         map.put("metodo_pago", String.valueOf(metodo_pago));
         map.put("id_usuario", String.valueOf(id_usuario));
         map.put("activo", String.valueOf(activo));
-        map.put("id", String.valueOf(id));
+        map.put("codigo_pedido", String.valueOf(codigo_pedido));
 
 
         // Crear nuevo objeto Json basado en el mapa
