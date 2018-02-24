@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -16,8 +15,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
-
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
@@ -25,15 +22,12 @@ import com.jesusgonzalez.droidshop.pedidos.AddPedidoFragment;
 import com.jesusgonzalez.droidshop.pedidos.PedidosFragment;
 import com.jesusgonzalez.droidshop.pedidos.UpdatePedidoFragment;
 import com.jesusgonzalez.droidshop.productos.AddProductoFragment;
-import com.jesusgonzalez.droidshop.productos.ProductoController;
 import com.jesusgonzalez.droidshop.productos.ProductoFragment;
 import com.jesusgonzalez.droidshop.productos.UpdateProductoFragment;
 import com.jesusgonzalez.droidshop.productos.dummy.DummyContent;
 import com.jesusgonzalez.droidshop.usuarios.AddUsuarioFragment;
 import com.jesusgonzalez.droidshop.usuarios.UpdateUsuarioFragment;
 import com.jesusgonzalez.droidshop.usuarios.UsuariosFragment;
-
-import java.io.Serializable;
 
 public class Principal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ProductoFragment.OnListFragmentInteractionListener,
@@ -52,15 +46,6 @@ public class Principal extends AppCompatActivity
         setContentView(R.layout.activity_principal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.menu_fab1);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -86,19 +71,13 @@ public class Principal extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.principal, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -123,8 +102,6 @@ public class Principal extends AppCompatActivity
     }
 
     private void loadFragmentsUsuarios() {
-
-
         FragmentManager fm01 = getSupportFragmentManager();
         FragmentTransaction ft01 = fm01.beginTransaction();
         UsuariosFragment fragment01 = new UsuariosFragment();
@@ -134,8 +111,6 @@ public class Principal extends AppCompatActivity
     }
 
     private void loadFragmentsPedidos() {
-
-
         FragmentManager fm01 = getSupportFragmentManager();
         FragmentTransaction ft01 = fm01.beginTransaction();
         PedidosFragment fragment01 = new PedidosFragment();
@@ -155,7 +130,7 @@ public class Principal extends AppCompatActivity
             //LIST
             loadFragmentsProductos();
 
-            FloatingActionsMenu menu = findViewById(R.id.menu_fab);
+            final FloatingActionsMenu menu = findViewById(R.id.menu_fab);
             menu.setVisibility(1);
 
             //ADD
@@ -165,6 +140,7 @@ public class Principal extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     loadAddProducto();
+                    menu.collapse();
                 }
             });
             //UPDATE
@@ -174,6 +150,7 @@ public class Principal extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     loadUpdateProducto();
+                    menu.collapse();
                 }
             });
             //DELETE
@@ -183,13 +160,14 @@ public class Principal extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
 
+                    menu.collapse();
                 }
             });
 
             //PEDIDOS
         } else if (id == R.id.nav_orders) {
             loadFragmentsPedidos();
-            FloatingActionsMenu menu = findViewById(R.id.menu_fab);
+            final FloatingActionsMenu menu = findViewById(R.id.menu_fab);
             menu.setVisibility(1);
             //ADD
             FloatingActionButton btAdd = findViewById(R.id.fabAdd);
@@ -198,6 +176,7 @@ public class Principal extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     loadAddPedido();
+                    menu.collapse();
                 }
             });
             //UPDATE
@@ -207,6 +186,7 @@ public class Principal extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     loadUpdatePedido();
+                    menu.collapse();
                 }
             });
             //DELETE
@@ -216,17 +196,18 @@ public class Principal extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
 
+                    menu.collapse();
                 }
             });
 
         } else if (id == R.id.nav_cart) {
-            FloatingActionsMenu menu = findViewById(R.id.menu_fab);
+            final FloatingActionsMenu menu = findViewById(R.id.menu_fab);
             menu.setVisibility(1);
             //CLIENTES
         } else if (id == R.id.nav_clients) {
             loadFragmentsUsuarios();
 
-            FloatingActionsMenu menu = findViewById(R.id.menu_fab);
+            final FloatingActionsMenu menu = findViewById(R.id.menu_fab);
             menu.setVisibility(1);
             //ADD
             FloatingActionButton btAdd = findViewById(R.id.fabAdd);
@@ -235,6 +216,7 @@ public class Principal extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     loadAddUsuario();
+                    menu.collapse();
                 }
             });
             //UPDATE
@@ -244,6 +226,7 @@ public class Principal extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     loadUpdateUsuario();
+                    menu.collapse();
                 }
             });
             //DELETE
@@ -253,6 +236,7 @@ public class Principal extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
 
+                    menu.collapse();
                 }
             });
 
@@ -329,18 +313,13 @@ public class Principal extends AppCompatActivity
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
     }
-
     @Override
     public void onFragmentInteraction(Uri uri) {
     }
-
     @Override
     public void onListFragmentInteraction(com.jesusgonzalez.droidshop.pedidos.dummy.DummyContent.DummyItem item) {
-
     }
-
     @Override
     public void onListFragmentInteraction(com.jesusgonzalez.droidshop.usuarios.dummy.DummyContent.DummyItem item) {
-
     }
 }

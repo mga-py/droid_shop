@@ -67,7 +67,6 @@ public class PedidoController {
                             public void onResponse(JSONObject response) {
                                 procesarInsercion(response); // Procesar la respuesta Json
                                 //Log.d(TAG,"Inserción correcta");
-                                Toast.makeText(context, "INSERCION CORRECTAA", Toast.LENGTH_SHORT).show();
                             }
                         },
                         new Response.ErrorListener() {
@@ -87,7 +86,7 @@ public class PedidoController {
             String estado = response.getString("estado");  // Obtener atributo estado
             switch (estado) {
                 case "1": // Correcto
-                    Toast.makeText(context, "Message added suscessfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Order added suscessfully", Toast.LENGTH_LONG).show();
                     break;
                 case "2": // error
                     Toast.makeText(context, response.getString("mensaje"), Toast.LENGTH_LONG).show();
@@ -102,14 +101,13 @@ public class PedidoController {
 
 
     public void getAll(final PedidosFragment.OnListFragmentInteractionListener listener) {
-        Toast.makeText(context, "Empezando.....", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Empezando...", Toast.LENGTH_SHORT).show();
         VolleySingleton.getInstance(context).addToRequestQueue(
                 new JsonObjectRequest(Request.Method.GET, Constantes.GET_PEDIDO, null,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
                                 procesarRespuesta(response, listener); // Procesar la respuesta Json
-                                Toast.makeText(context, "PROCESANDOO.....", Toast.LENGTH_SHORT).show();
                             }
                         },
                         new Response.ErrorListener() {
@@ -163,7 +161,7 @@ public class PedidoController {
                             @Override
                             public void onResponse(JSONObject response) {
                                 //procesarRespuesta(response); // Procesar la respuesta Json
-                                Log.d(TAG, "Inserción correcta");
+                                Log.d(TAG, "Borrado correcto");
                             }
                         },
                         new Response.ErrorListener() {
@@ -226,7 +224,7 @@ public class PedidoController {
                             public void onResponse(JSONObject response) {
                                 procesarActualizacion(response); // Procesar la respuesta Json
                                 //Log.d(TAG,"Inserción correcta");
-                                Toast.makeText(context, "ACTUALIZACION CORRECTAA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "ACTUALIZACION CORRECTA", Toast.LENGTH_SHORT).show();
                             }
                         },
                         new Response.ErrorListener() {
@@ -246,7 +244,7 @@ public class PedidoController {
             String estado = response.getString("estado");  // Obtener atributo estado
             switch (estado) {
                 case "1": // Correcto
-                    Toast.makeText(context, "Pedido update suscessfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Pedido updated suscessfully", Toast.LENGTH_LONG).show();
                     break;
                 case "2": // error
                     Toast.makeText(context, response.getString("mensaje"), Toast.LENGTH_LONG).show();

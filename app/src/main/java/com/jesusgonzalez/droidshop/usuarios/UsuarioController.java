@@ -61,7 +61,7 @@ public class UsuarioController {
                             public void onResponse(JSONObject response) {
                                 procesarInsercion(response); // Procesar la respuesta Json
                                 //Log.d(TAG,"Inserción correcta");
-                                Toast.makeText(context, "INSERCION CORRECTAA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "INSERCION CORRECTA", Toast.LENGTH_SHORT).show();
                             }
                         },
                         new Response.ErrorListener() {
@@ -81,7 +81,7 @@ public class UsuarioController {
             String estado = response.getString("estado");  // Obtener atributo estado
             switch (estado) {
                 case "1": // Correcto
-                    Toast.makeText(context, "Message added suscessfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "User added suscessfully", Toast.LENGTH_LONG).show();
                     break;
                 case "2": // error
                     Toast.makeText(context, response.getString("mensaje"), Toast.LENGTH_LONG).show();
@@ -153,7 +153,7 @@ public class UsuarioController {
                             @Override
                             public void onResponse(JSONObject response) {
                                 //procesarRespuesta(response); // Procesar la respuesta Json
-                                Log.d(TAG, "Inserción correcta");
+                                Log.d(TAG, "Borrado correcto");
                             }
                         },
                         new Response.ErrorListener() {
@@ -229,7 +229,7 @@ public class UsuarioController {
             String estado = response.getString("estado");  // Obtener atributo estado
             switch (estado) {
                 case "1": // Correcto
-                    Toast.makeText(context, "Message added suscessfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "User updated suscessfully", Toast.LENGTH_LONG).show();
                     break;
                 case "2": // error
                     Toast.makeText(context, response.getString("mensaje"), Toast.LENGTH_LONG).show();

@@ -86,7 +86,7 @@ public class ProductoController {
             String estado = response.getString("estado");  // Obtener atributo estado
             switch (estado) {
                 case "1": // Correcto
-                    Toast.makeText(context, "Message added suscessfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Product added suscessfully", Toast.LENGTH_LONG).show();
                     break;
                 case "2": // error
                     Toast.makeText(context, response.getString("mensaje"), Toast.LENGTH_LONG).show();
@@ -153,7 +153,7 @@ public class ProductoController {
                             @Override
                             public void onResponse(JSONObject response) {
                                 //procesarRespuesta(response); // Procesar la respuesta Json
-                                Log.d(TAG, "Inserción correcta");
+                                Log.d(TAG, "Borrado correcto");
                             }
                         },
                         new Response.ErrorListener() {
@@ -212,7 +212,7 @@ public class ProductoController {
                             public void onResponse(JSONObject response) {
                                 procesarActualizacion(response); // Procesar la respuesta Json
                                 //Log.d(TAG,"Inserción correcta");
-                                Toast.makeText(context, "ACTUALIZACION CORRECTAA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "ACTUALIZACION CORRECTA", Toast.LENGTH_SHORT).show();
                             }
                         },
                         new Response.ErrorListener() {
@@ -232,7 +232,7 @@ public class ProductoController {
             String estado = response.getString("estado");  // Obtener atributo estado
             switch (estado) {
                 case "1": // Correcto
-                    Toast.makeText(context, "Producto update suscessfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Product updated suscessfully", Toast.LENGTH_LONG).show();
                     break;
                 case "2": // error
                     Toast.makeText(context, response.getString("mensaje"), Toast.LENGTH_LONG).show();
