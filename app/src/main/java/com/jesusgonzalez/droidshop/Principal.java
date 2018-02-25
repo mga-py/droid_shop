@@ -33,7 +33,8 @@ import com.jesusgonzalez.droidshop.usuarios.UpdateUsuarioFragment;
 import com.jesusgonzalez.droidshop.usuarios.UsuariosFragment;
 
 public class Principal extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ProductoFragment.OnListFragmentInteractionListener, UsuariosFragment.OnListFragmentInteractionListener, PedidosFragment.OnListFragmentInteractionListener,
+        implements NavigationView.OnNavigationItemSelectedListener, ProductoFragment.OnListFragmentInteractionListener, UsuariosFragment.OnListFragmentInteractionListener,
+        PedidosFragment.OnListFragmentInteractionListener, PortadaFragment.OnFragmentInteractionListener,
         AddProductoFragment.OnFragmentInteractionListener, UpdateProductoFragment.OnFragmentInteractionListener, DeleteProductoFragment.OnFragmentInteractionListener,
         AddUsuarioFragment.OnFragmentInteractionListener, UpdateUsuarioFragment.OnFragmentInteractionListener, DeleteUsuarioFragment.OnFragmentInteractionListener,
         AddPedidoFragment.OnFragmentInteractionListener, UpdatePedidoFragment.OnFragmentInteractionListener, DeletePedidoFragment.OnFragmentInteractionListener {
@@ -55,6 +56,13 @@ public class Principal extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentManager fm01 = getSupportFragmentManager();
+        FragmentTransaction ft01 = fm01.beginTransaction();
+        PortadaFragment fragment01 = new PortadaFragment();
+        //fragment01.setArguments(bundle);
+        ft01.replace(R.id.frame_contain01, fragment01);
+        ft01.commit();
     }
 
     @Override
