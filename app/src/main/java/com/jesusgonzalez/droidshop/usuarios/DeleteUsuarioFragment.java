@@ -1,4 +1,4 @@
-package com.jesusgonzalez.droidshop.productos;
+package com.jesusgonzalez.droidshop.usuarios;
 
 import android.content.Context;
 import android.net.Uri;
@@ -7,22 +7,27 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.jesusgonzalez.droidshop.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SearchIdProductoFragment.OnFragmentInteractionListener} interface
+ * {@link DeleteUsuarioFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SearchIdProductoFragment#newInstance} factory method to
+ * Use the {@link DeleteUsuarioFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchIdProductoFragment extends Fragment {
+public class DeleteUsuarioFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    EditText etCodigoUsuarioDelete;
+    Button button;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -30,7 +35,7 @@ public class SearchIdProductoFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SearchIdProductoFragment() {
+    public DeleteUsuarioFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +45,11 @@ public class SearchIdProductoFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchIdProductoFragment.
+     * @return A new instance of fragment DeleteUsuarioFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SearchIdProductoFragment newInstance(String param1, String param2) {
-        SearchIdProductoFragment fragment = new SearchIdProductoFragment();
+    public static DeleteUsuarioFragment newInstance(String param1, String param2) {
+        DeleteUsuarioFragment fragment = new DeleteUsuarioFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,11 +67,27 @@ public class SearchIdProductoFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_id_producto, container, false);
+        View view = inflater.inflate(R.layout.fragment_delete_usuario, container, false);
+
+        etCodigoUsuarioDelete = view.findViewById(R.id.et_codUsuario_delete);
+        button = view.findViewById(R.id.bt_deleteUsuario);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteUsuario(view);
+            }
+        });
+
+        return view;
     }
+
+    public void deleteUsuario(View view) {
+        UsuarioController usuarioController = new UsuarioController(getContext(), view);
+        usuarioController.deleteUsuario(String.valueOf(etCodigoUsuarioDelete.getText()));
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

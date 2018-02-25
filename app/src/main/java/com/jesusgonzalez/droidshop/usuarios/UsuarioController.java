@@ -141,9 +141,9 @@ public class UsuarioController {
         }
     }
 
-    public void deleteUsuario(String codigoCliente) {
+    public void deleteUsuario(String codigoUsuario) {
         HashMap<String, String> map = new HashMap<>();
-        map.put("codigoCliente", String.valueOf(codigoCliente));
+        map.put("codigo_cliente", String.valueOf(codigoUsuario));
         JSONObject jsonObject = new JSONObject(map); // Crear nuevo objeto Json basado en el mapa
 
         //Volley
@@ -167,7 +167,7 @@ public class UsuarioController {
 
     public void searchUsuario(String codigoUsuario) {
         HashMap<String, String> map = new HashMap<>();
-        map.put("codigoUsuario", String.valueOf(codigoUsuario));
+        map.put("codigo_usuario", String.valueOf(codigoUsuario));
         JSONObject jsonObject = new JSONObject(map); // Crear nuevo objeto Json basado en el mapa
 
         //Volley
@@ -178,6 +178,7 @@ public class UsuarioController {
                             public void onResponse(JSONObject response) {
                                 //procesarRespuesta(response); // Procesar la respuesta Json
                                 Log.d(TAG, "Inserción correcta");
+                                Toast.makeText(context, "BORRADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
                             }
                         },
                         new Response.ErrorListener() {
@@ -209,7 +210,7 @@ public class UsuarioController {
                             public void onResponse(JSONObject response) {
                                 procesarActualizacion(response); // Procesar la respuesta Json
                                 //Log.d(TAG,"Inserción correcta");
-                                Toast.makeText(context, "ACTUALIZACION CORRECTAA", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "ACTUALIZACION CORRECTA", Toast.LENGTH_SHORT).show();
                             }
                         },
                         new Response.ErrorListener() {

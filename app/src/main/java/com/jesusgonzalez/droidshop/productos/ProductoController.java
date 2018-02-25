@@ -143,7 +143,7 @@ public class ProductoController {
 
     public void deleteProducto(String codigoProducto) {
         HashMap<String, String> map = new HashMap<>();
-        map.put("codigoProducto", String.valueOf(codigoProducto));
+        map.put("codigo_producto", String.valueOf(codigoProducto));
         JSONObject jsonObject = new JSONObject(map); // Crear nuevo objeto Json basado en el mapa
 
         //Volley
@@ -154,6 +154,7 @@ public class ProductoController {
                             public void onResponse(JSONObject response) {
                                 //procesarRespuesta(response); // Procesar la respuesta Json
                                 Log.d(TAG, "Borrado correcto");
+                                Toast.makeText(context, "BORRADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
                             }
                         },
                         new Response.ErrorListener() {

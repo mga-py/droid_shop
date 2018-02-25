@@ -151,7 +151,7 @@ public class PedidoController {
 
     public void deletePedido(String codigoPedido) {
         HashMap<String, String> map = new HashMap<>();
-        map.put("codigoPedido", String.valueOf(codigoPedido));
+        map.put("codigo_pedido", String.valueOf(codigoPedido));
         JSONObject jsonObject = new JSONObject(map); // Crear nuevo objeto Json basado en el mapa
 
         //Volley
@@ -162,6 +162,7 @@ public class PedidoController {
                             public void onResponse(JSONObject response) {
                                 //procesarRespuesta(response); // Procesar la respuesta Json
                                 Log.d(TAG, "Borrado correcto");
+                                Toast.makeText(context, "BORRADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
                             }
                         },
                         new Response.ErrorListener() {

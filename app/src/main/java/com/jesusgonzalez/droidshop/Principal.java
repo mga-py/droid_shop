@@ -19,26 +19,26 @@ import android.view.View;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.jesusgonzalez.droidshop.pedidos.AddPedidoFragment;
+import com.jesusgonzalez.droidshop.pedidos.DeletePedidoFragment;
 import com.jesusgonzalez.droidshop.pedidos.PedidosFragment;
 import com.jesusgonzalez.droidshop.pedidos.UpdatePedidoFragment;
 import com.jesusgonzalez.droidshop.productos.AddProductoFragment;
+import com.jesusgonzalez.droidshop.productos.DeleteProductoFragment;
 import com.jesusgonzalez.droidshop.productos.ProductoFragment;
 import com.jesusgonzalez.droidshop.productos.UpdateProductoFragment;
 import com.jesusgonzalez.droidshop.productos.dummy.DummyContent;
 import com.jesusgonzalez.droidshop.usuarios.AddUsuarioFragment;
+import com.jesusgonzalez.droidshop.usuarios.DeleteUsuarioFragment;
 import com.jesusgonzalez.droidshop.usuarios.UpdateUsuarioFragment;
 import com.jesusgonzalez.droidshop.usuarios.UsuariosFragment;
 
 public class Principal extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ProductoFragment.OnListFragmentInteractionListener,
-        AddProductoFragment.OnFragmentInteractionListener, UpdateProductoFragment.OnFragmentInteractionListener,
-        AddUsuarioFragment.OnFragmentInteractionListener, UpdateUsuarioFragment.OnFragmentInteractionListener,
-        AddPedidoFragment.OnFragmentInteractionListener, UpdatePedidoFragment.OnFragmentInteractionListener,
-        UsuariosFragment.OnListFragmentInteractionListener, PedidosFragment.OnListFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ProductoFragment.OnListFragmentInteractionListener, UsuariosFragment.OnListFragmentInteractionListener, PedidosFragment.OnListFragmentInteractionListener,
+        AddProductoFragment.OnFragmentInteractionListener, UpdateProductoFragment.OnFragmentInteractionListener, DeleteProductoFragment.OnFragmentInteractionListener,
+        AddUsuarioFragment.OnFragmentInteractionListener, UpdateUsuarioFragment.OnFragmentInteractionListener, DeleteUsuarioFragment.OnFragmentInteractionListener,
+        AddPedidoFragment.OnFragmentInteractionListener, UpdatePedidoFragment.OnFragmentInteractionListener, DeletePedidoFragment.OnFragmentInteractionListener {
 
     private static final String LISTA_PRODUCTOS = "com.jesusgonzalez.droidshop.productos.ListaProductos";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +56,6 @@ public class Principal extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -81,18 +79,11 @@ public class Principal extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
 
     private void loadFragmentsProductos() {
-        //Bundle bundle = new Bundle();
-        //bundle.putSerializable(LISTA_PRODUCTOS, (Serializable) noticias);
-
-//        ProductoController productoController = new ProductoController(this,getCurrentFocus());
-//        productoController.getAll(mListener);
-
         FragmentManager fm01 = getSupportFragmentManager();
         FragmentTransaction ft01 = fm01.beginTransaction();
         ProductoFragment fragment01 = new ProductoFragment();
@@ -159,7 +150,7 @@ public class Principal extends AppCompatActivity
             btDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    loadDeleteProducto();
                     menu.collapse();
                 }
             });
@@ -195,7 +186,7 @@ public class Principal extends AppCompatActivity
             btDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    loadDeletePedido();
                     menu.collapse();
                 }
             });
@@ -235,7 +226,7 @@ public class Principal extends AppCompatActivity
             btDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    loadDeleteUsuario();
                     menu.collapse();
                 }
             });
@@ -270,6 +261,14 @@ public class Principal extends AppCompatActivity
         ft01.commit();
     }
 
+    public void loadDeleteProducto() {
+        FragmentManager fm01 = getSupportFragmentManager();
+        FragmentTransaction ft01 = fm01.beginTransaction();
+        DeleteProductoFragment fragment01 = new DeleteProductoFragment();
+        //fragment01.setArguments(bundle);
+        ft01.replace(R.id.frame_contain01, fragment01);
+        ft01.commit();
+    }
 
     //---PEDIDOS
     public void loadAddPedido() {
@@ -290,6 +289,15 @@ public class Principal extends AppCompatActivity
         ft01.commit();
     }
 
+    public void loadDeletePedido() {
+        FragmentManager fm01 = getSupportFragmentManager();
+        FragmentTransaction ft01 = fm01.beginTransaction();
+        DeletePedidoFragment fragment01 = new DeletePedidoFragment();
+        //fragment01.setArguments(bundle);
+        ft01.replace(R.id.frame_contain01, fragment01);
+        ft01.commit();
+    }
+
     //---USUARIOS
     public void loadAddUsuario() {
         FragmentManager fm01 = getSupportFragmentManager();
@@ -304,6 +312,15 @@ public class Principal extends AppCompatActivity
         FragmentManager fm01 = getSupportFragmentManager();
         FragmentTransaction ft01 = fm01.beginTransaction();
         UpdateUsuarioFragment fragment01 = new UpdateUsuarioFragment();
+        //fragment01.setArguments(bundle);
+        ft01.replace(R.id.frame_contain01, fragment01);
+        ft01.commit();
+    }
+
+    public void loadDeleteUsuario() {
+        FragmentManager fm01 = getSupportFragmentManager();
+        FragmentTransaction ft01 = fm01.beginTransaction();
+        DeleteUsuarioFragment fragment01 = new DeleteUsuarioFragment();
         //fragment01.setArguments(bundle);
         ft01.replace(R.id.frame_contain01, fragment01);
         ft01.commit();

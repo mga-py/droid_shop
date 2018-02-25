@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jesusgonzalez.droidshop.pedidos.SearchIdPedidoFragment">
+    tools:context="com.jesusgonzalez.droidshop.pedidos.DeletePedidoFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/et_idPedido_search"
+            android:id="@+id/et_codPedido_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -24,7 +24,7 @@
             android:layout_height="37dp" />
 
         <Button
-            android:id="@+id/bt_searchIdPedido"
+            android:id="@+id/bt_deletePedido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="BUSCAR" />
