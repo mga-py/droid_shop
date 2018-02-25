@@ -7,10 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.jesusgonzalez.droidshop.R;
 
@@ -103,6 +101,7 @@ public class AddProductoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 insertarProducto(v);
+                clear();
             }
         });
 
@@ -125,8 +124,16 @@ public class AddProductoFragment extends Fragment {
         productoController.insert(String.valueOf(etCodigoProductoAdd.getText().toString()), String.valueOf(etDescripcionProductoAdd.getText()),
                 String.valueOf(etProveedorProductoAdd.getText().toString()), String.valueOf(etPrecioCosteProductoAdd.getText().toString()), String.valueOf(etPvpProductoAdd.getText()),
                 String.valueOf(etIvaProductoAdd.getText()), "123456", "20", "10", "50", "", "1");
+    }
 
-
+    private void clear() {
+        etCodigoProductoAdd.setText("");
+        etDescripcionProductoAdd.setText("");
+        etProveedorProductoAdd.setText("");
+        etPrecioCosteProductoAdd.setText("");
+        etPvpProductoAdd.setText("");
+        etIvaProductoAdd.setText("");
+        etActivoProductoAdd.setText("");
     }
 
 

@@ -87,6 +87,7 @@ public class AddUsuarioFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 insertUsuario(view);
+                clear();
             }
         });
 
@@ -110,6 +111,13 @@ public class AddUsuarioFragment extends Fragment {
 
     }
 
+    private void clear() {
+        etCodigoClienteAdd.setText("");
+        etNifAdd.setText("");
+        etNombreAdd.setText("");
+        etRolAdd.setText("");
+        etActivoAdd.setText("");
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

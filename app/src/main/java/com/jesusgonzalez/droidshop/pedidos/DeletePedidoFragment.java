@@ -76,6 +76,7 @@ public class DeletePedidoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 deletePedido(view);
+                clear();
             }
         });
 
@@ -85,6 +86,10 @@ public class DeletePedidoFragment extends Fragment {
     public void deletePedido(View view) {
         PedidoController pedidoController = new PedidoController(getContext(), view);
         pedidoController.deletePedido(String.valueOf(etCodigoPedidoDelete.getText()));
+    }
+
+    private void clear() {
+        etCodigoPedidoDelete.setText("");
     }
 
     // TODO: Rename method, update argument and hook method into UI event

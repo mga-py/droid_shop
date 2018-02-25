@@ -77,6 +77,7 @@ public class DeleteUsuarioFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 deleteUsuario(view);
+                clear();
             }
         });
 
@@ -86,6 +87,10 @@ public class DeleteUsuarioFragment extends Fragment {
     public void deleteUsuario(View view) {
         UsuarioController usuarioController = new UsuarioController(getContext(), view);
         usuarioController.deleteUsuario(String.valueOf(etCodigoUsuarioDelete.getText()));
+    }
+
+    private void clear() {
+        etCodigoUsuarioDelete.setText("");
     }
 
 

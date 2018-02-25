@@ -99,6 +99,7 @@ public class UpdateProductoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 modificarProducto(view);
+                clear();
             }
         });
 
@@ -118,6 +119,16 @@ public class UpdateProductoFragment extends Fragment {
         productoController.update(String.valueOf(etDescripcionProductoUpdate.getText()),
                 String.valueOf(etProveedorProductoUpdate.getText().toString()), String.valueOf(etPrecioCosteProductoUpdate.getText().toString()), String.valueOf(etPvpProductoUpdate.getText()),
                 String.valueOf(etIvaProductoUpdate.getText()), String.valueOf(etActivoProductoUpdate.getText()), String.valueOf(etCodigoProductoUpdate.getText().toString()));
+    }
+
+    private void clear() {
+        etCodigoProductoUpdate.setText("");
+        etDescripcionProductoUpdate.setText("");
+        etProveedorProductoUpdate.setText("");
+        etPrecioCosteProductoUpdate.setText("");
+        etPvpProductoUpdate.setText("");
+        etIvaProductoUpdate.setText("");
+        etActivoProductoUpdate.setText("");
     }
 
     @Override

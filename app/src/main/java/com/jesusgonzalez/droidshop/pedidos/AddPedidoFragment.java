@@ -12,11 +12,6 @@ import android.widget.EditText;
 
 import com.jesusgonzalez.droidshop.R;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -99,6 +94,7 @@ public class AddPedidoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 addPedido(view);
+                clear();
             }
         });
 
@@ -126,6 +122,19 @@ public class AddPedidoFragment extends Fragment {
                 String.valueOf(etIdUsuario.getText().toString()),
                 String.valueOf(etActivo.getText().toString()));
 
+    }
+
+    private void clear() {
+        etCodigoPedido.setText("");
+        etEmpleado.setText("");
+        etEmpresaTransporte.setText("");
+        etEmpresaTransporte.setText("");
+        etFechaPedido.setText("");
+        etIdFactura.setText("");
+        etFacturado.setText("");
+        etMetodoPago.setText("");
+        etIdUsuario.setText("");
+        etActivo.setText("");
     }
 
 

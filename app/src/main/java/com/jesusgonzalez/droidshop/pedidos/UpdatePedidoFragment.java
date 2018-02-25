@@ -93,6 +93,7 @@ public class UpdatePedidoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 updatePedido(view);
+                clear();
             }
         });
 
@@ -114,6 +115,19 @@ public class UpdatePedidoFragment extends Fragment {
                 String.valueOf(etActivo.getText().toString()),
                 String.valueOf(etCodigoPedido.getText().toString()));
 
+    }
+
+    private void clear() {
+        etCodigoPedido.setText("");
+        etEmpleado.setText("");
+        etEmpresaTransporte.setText("");
+        etEmpresaTransporte.setText("");
+        etFechaPedido.setText("");
+        etIdFactura.setText("");
+        etFacturado.setText("");
+        etMetodoPago.setText("");
+        etIdUsuario.setText("");
+        etActivo.setText("");
     }
 
 

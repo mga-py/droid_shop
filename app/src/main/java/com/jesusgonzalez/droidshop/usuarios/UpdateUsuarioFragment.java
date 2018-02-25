@@ -87,6 +87,7 @@ public class UpdateUsuarioFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 updateUsuario(view);
+                clear();
             }
         });
 
@@ -105,6 +106,13 @@ public class UpdateUsuarioFragment extends Fragment {
                 String.valueOf(etCodigoClienteUpdate.getText()));
     }
 
+    private void clear() {
+        etCodigoClienteUpdate.setText("");
+        etNifUpdate.setText("");
+        etNombreUpdate.setText("");
+        etRolUpdate.setText("");
+        etActivoUpdate.setText("");
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
